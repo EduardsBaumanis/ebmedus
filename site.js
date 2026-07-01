@@ -179,15 +179,38 @@ function setupContactForm() {
       return;
     }
 
-    const data = new FormData(form);
-    const name = data.get("name").trim();
-    const email = data.get("email").trim();
-    const message = data.get("message").trim();
-    const subject = encodeURIComponent(`Ziņa no ${name} — lielvaiceni.lv`);
-    const body = encodeURIComponent(`Vārds: ${name}\nE-pasts: ${email}\n\n${message}`);
+    const button = form.querySelector('button[type="submit"]');
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
 
-    status.textContent = "Tiek atvērta tava e-pasta programma…";
-    window.location.href = `mailto:lielvaiceni@inbox.lv?subject=${subject}&body=${body}`;
+    button.disabled = true;
+    button.textContent = "Nosūta…";
+    status.textContent = "Ziņojums tiek nosūtīts…";
+
+    fetch("https://formsubmit.co/ajax/lielvaiceni@inbox.lv", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Form submission failed");
+        return response.json();
+      })
+      .then(() => {
+        form.reset();
+        status.textContent = "Paldies! Ziņojums ir veiksmīgi nosūtīts.";
+      })
+      .catch(() => {
+        error.textContent = "Ziņojumu neizdevās nosūtīt. Lūdzu, mēģini vēlreiz vai raksti uz lielvaiceni@inbox.lv.";
+        status.textContent = "";
+      })
+      .finally(() => {
+        button.disabled = false;
+        button.textContent = "Nosūtīt ziņojumu →";
+      });
   });
 }
 

@@ -55,9 +55,13 @@
           </div>
         </div>
 
-        <form class="contact-form" data-contact-form novalidate>
+        <form class="contact-form" data-contact-form action="https://formsubmit.co/lielvaiceni@inbox.lv" method="POST" novalidate>
           <h2>Kontaktu forma</h2>
-          <p class="form-intro">Aizpildi formu, un mēs sagatavosim ziņu tavā e-pasta programmā.</p>
+          <p class="form-intro">Aizpildi formu, un ziņojums tiks nosūtīts uz mūsu e-pastu.</p>
+          <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="Jauna ziņa no Lielvaicēnu mājaslapas">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <label class="field">
             <span>VĀRDS *</span>
             <input type="text" name="name" autocomplete="name" placeholder="Tavs vārds" required>
@@ -72,7 +76,7 @@
           </label>
           <div class="form-error" role="alert"></div>
           <div class="form-status" role="status"></div>
-          <button class="button button-light" style="width:100%" type="submit">Sagatavot ziņojumu →</button>
+          <button class="button button-light" style="width:100%" type="submit">Nosūtīt ziņojumu →</button>
         </form>
       </div>
     </section>

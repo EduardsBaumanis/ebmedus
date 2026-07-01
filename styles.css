@@ -515,11 +515,7 @@ h3 {
 }
 
 .product-image.pollen-image {
-  background:
-    radial-gradient(circle at 20% 22%, rgba(242, 179, 44, 0.24) 0 4px, transparent 5px),
-    radial-gradient(circle at 81% 70%, rgba(226, 151, 27, 0.24) 0 5px, transparent 6px),
-    #f3ead4;
-  background-size: 38px 38px, 46px 46px, auto;
+  background: #f3ead4;
 }
 
 .product-image.pollen-image img {
@@ -1345,6 +1341,19 @@ h3 {
   margin: -4px 0 12px;
   color: var(--honey);
   font-size: 0.86rem;
+}
+
+.form-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
 .direct-grid {
