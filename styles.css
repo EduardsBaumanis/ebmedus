@@ -514,6 +514,20 @@ h3 {
   background: linear-gradient(165deg, #f3ead4 0 55%, #3aa587 56% 76%, #1f8a70 77%);
 }
 
+.product-image.pollen-image {
+  background:
+    radial-gradient(circle at 20% 22%, rgba(242, 179, 44, 0.24) 0 4px, transparent 5px),
+    radial-gradient(circle at 81% 70%, rgba(226, 151, 27, 0.24) 0 5px, transparent 6px),
+    #f3ead4;
+  background-size: 38px 38px, 46px 46px, auto;
+}
+
+.pollen-jar {
+  width: 160px;
+  height: 180px;
+  filter: drop-shadow(0 14px 16px rgba(20, 30, 50, 0.18));
+}
+
 .flower-mark {
   position: relative;
   width: 70px;
@@ -577,6 +591,24 @@ h3 {
   background:
     linear-gradient(30deg, transparent 48%, rgba(247, 207, 32, 0.1) 49% 51%, transparent 52%),
     var(--navy);
+}
+
+.dark-product .feed-image {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.feed-package {
+  width: 94px;
+  height: 94px;
+}
+
+.package-note {
+  color: var(--honey);
+  font-family: var(--font-label);
+  font-size: 8px;
+  letter-spacing: 0.06em;
 }
 
 .dark-product .product-meta {
@@ -946,7 +978,7 @@ h3 {
 
 .service-feature strong {
   font-family: var(--font-label);
-  font-size: 2.4rem;
+  font-size: 1.7rem;
 }
 
 .service-feature strong small {
