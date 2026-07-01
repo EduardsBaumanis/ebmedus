@@ -71,6 +71,14 @@ function renderHeader() {
           <path d="M39 31c0-22 42-22 42 0" fill="none" stroke="#f6f1dc" stroke-width="7"/>
           <path d="M60 57c12 15 15 21 15 29a15 15 0 01-30 0c0-8 3-14 15-29z" fill="#1f8a70"/>
         </symbol>
+        <symbol id="icon-candle" viewBox="0 0 120 120">
+          <ellipse cx="60" cy="111" rx="30" ry="7" fill="#1e2a41" opacity=".16"/>
+          <rect x="42" y="46" width="36" height="62" rx="6" fill="#f2b32c"/>
+          <rect x="42" y="46" width="36" height="62" rx="6" fill="none" stroke="#e2971b" stroke-width="4"/>
+          <line x1="60" y1="30" x2="60" y2="48" stroke="#182234" stroke-width="5"/>
+          <path d="M60 4c9 14 9 24 0 32-9-8-9-18 0-32z" fill="#f7cf20"/>
+          <path d="M60 12c5 8 5 14 0 19-5-5-5-11 0-19z" fill="#fce8a0"/>
+        </symbol>
       </defs>
     </svg>
     <a class="skip-link" href="#main">Pāriet uz saturu</a>

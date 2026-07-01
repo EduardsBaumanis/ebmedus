@@ -510,6 +510,13 @@ h3 {
   width: 150%;
 }
 
+.dark-product .feed-package,
+.product-image img {
+  width: 145%;
+  max-width: none;
+  height: auto;
+}
+
 .product-image.illustration {
   background: linear-gradient(165deg, #f3ead4 0 55%, #3aa587 56% 76%, #1f8a70 77%);
 }
@@ -529,6 +536,27 @@ h3 {
 
 .product-image.heather-honey {
   background: #efe6dd;
+}
+
+.product-image.wax-image {
+  background: #f7ecc7;
+}
+
+.product-image.candle-image {
+  background: #f7e3c4;
+}
+
+.product-image.candy-image {
+  background: #f4ecd8;
+}
+
+.product-image.queen-image {
+  background: #e3ecda;
+}
+
+.tile-icon {
+  width: 84px;
+  height: 84px;
 }
 
 .flower-mark {
@@ -603,8 +631,9 @@ h3 {
 }
 
 .feed-package {
-  width: 94px;
-  height: 94px;
+  width: auto;
+  height: 135%;
+  max-height: none;
 }
 
 .round-arrow.arrow-link {
