@@ -21,6 +21,58 @@ function renderHeader() {
     .join("");
 
   target.innerHTML = `
+    <svg class="icon-sprite" aria-hidden="true">
+      <defs>
+        <symbol id="icon-hex" viewBox="0 0 100 88">
+          <polygon points="25,2 75,2 98,44 75,86 25,86 2,44" fill="currentColor"/>
+        </symbol>
+        <symbol id="icon-hive" viewBox="0 0 100 120">
+          <polygon points="12,33 50,13 88,33" fill="#f2a515"/>
+          <rect x="14" y="32" width="72" height="13" rx="2" fill="#e2971b"/>
+          <rect x="20" y="48" width="60" height="22" rx="2" fill="#f2b32c"/>
+          <rect x="20" y="73" width="60" height="25" rx="2" fill="#243354"/>
+          <rect x="13" y="98" width="74" height="12" rx="2" fill="#e2971b"/>
+          <rect x="40" y="87" width="20" height="6" rx="3" fill="#f7cf20"/>
+        </symbol>
+        <symbol id="icon-flower" viewBox="0 0 100 120">
+          <path d="M50 55v58M50 86c-8-13-19-16-27-13 1 12 11 22 27 22M50 82c8-13 19-16 27-13-1 12-11 22-27 22" fill="none" stroke="#1f9b79" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="#e7a2b8">
+            <circle cx="50" cy="26" r="13"/><circle cx="33" cy="35" r="12"/><circle cx="67" cy="35" r="12"/>
+            <circle cx="31" cy="53" r="12"/><circle cx="69" cy="53" r="12"/><circle cx="50" cy="59" r="13"/>
+          </g>
+          <circle cx="50" cy="43" r="12" fill="#f2b32c"/>
+          <g fill="#f6f1dc">
+            <circle cx="45" cy="36" r="2.5"/><circle cx="56" cy="39" r="2.5"/><circle cx="50" cy="49" r="2.5"/>
+          </g>
+        </symbol>
+        <symbol id="icon-wax" viewBox="0 0 120 120">
+          <g fill="none" stroke="#f7cf20" stroke-width="7" stroke-linejoin="round">
+            <path d="M29 12h62l20 35-20 35H29L9 47z"/>
+            <path d="M45 40h30l10 18-10 18H45L35 58z"/>
+          </g>
+          <path d="M20 91h80v17H20z" fill="#e2971b"/>
+        </symbol>
+        <symbol id="icon-queen" viewBox="0 0 120 120">
+          <path d="M34 27l11 10 15-20 15 20 11-10 5 27H29z" fill="#f7cf20"/>
+          <ellipse cx="60" cy="77" rx="23" ry="30" fill="#f2b32c"/>
+          <path d="M39 66h42M37 80h46M42 94h36" stroke="#182234" stroke-width="8"/>
+          <ellipse cx="36" cy="68" rx="17" ry="10" fill="#f6f1dc" opacity=".92" transform="rotate(-28 36 68)"/>
+          <ellipse cx="84" cy="68" rx="17" ry="10" fill="#f6f1dc" opacity=".92" transform="rotate(28 84 68)"/>
+        </symbol>
+        <symbol id="icon-candy" viewBox="0 0 120 120">
+          <path d="M20 38l40-20 40 20-40 21z" fill="#f2b32c"/>
+          <path d="M20 38v48l40 22V59z" fill="#e2971b"/>
+          <path d="M100 38v48l-40 22V59z" fill="#f7cf20"/>
+          <rect x="69" y="62" width="21" height="15" rx="3" fill="#1e2a41"/>
+        </symbol>
+        <symbol id="icon-feed" viewBox="0 0 120 120">
+          <path d="M31 31h58l-7 72H38z" fill="#f2b32c"/>
+          <path d="M27 31h66v13H27z" fill="#e2971b"/>
+          <path d="M39 31c0-22 42-22 42 0" fill="none" stroke="#f6f1dc" stroke-width="7"/>
+          <path d="M60 57c12 15 15 21 15 29a15 15 0 01-30 0c0-8 3-14 15-29z" fill="#1f8a70"/>
+        </symbol>
+      </defs>
+    </svg>
     <a class="skip-link" href="#main">Pāriet uz saturu</a>
     <header class="site-header">
       <div class="container nav-shell">

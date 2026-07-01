@@ -76,6 +76,13 @@ a {
   border-radius: 8px;
 }
 
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 .skip-link:focus {
   transform: none;
 }
@@ -625,6 +632,11 @@ h3 {
   height: 30px;
 }
 
+.round-icon svg {
+  width: 43px;
+  height: 50px;
+}
+
 .cta-band {
   position: relative;
   overflow: hidden;
@@ -909,8 +921,11 @@ h3 {
   border-radius: 14px;
   background: var(--navy);
   color: var(--honey);
-  font-family: var(--font-label);
-  font-size: 1.5rem;
+}
+
+.service-card .service-icon svg {
+  width: 44px;
+  height: 44px;
 }
 
 .service-card p {
