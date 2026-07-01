@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'PMESAN';src:url('fonts/PMESAN.ttf') format('truetype');font-display:swap}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#d9d3c0;font-family:'PMESAN',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.dv-turn{padding:56px 60px 44px;border-bottom:1px solid rgba(0,0,0,.10);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:12px;margin:0 0 30px}
+.dv-tid{font:700 11px/1 'Krona One',monospace;letter-spacing:.5px;padding:5px 9px;background:#1e2a41;color:#f4efdb;border-radius:5px;text-decoration:none}
+.dv-tname{font:400 14px/1.3 'Krona One',sans-serif;color:#1e2a41}
+.dv-opts{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:12px;scroll-margin-top:16px}
+.dv-olabel{display:flex;align-items:center;gap:10px;font:400 12px/1.4 'Krona One',sans-serif;color:rgba(0,0,0,.5)}
+.dv-oid{font:700 11px/1 'Krona One',monospace;padding:5px 9px;background:rgba(0,0,0,.09);color:#1e2a41;border-radius:6px;text-decoration:none}
+.dv-opt:target .dv-oid{background:#e2971b;color:#fff}
+.dv-card{width:1280px;max-width:1280px;background:#f4efdb;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(20,30,50,.5);border:1px solid rgba(20,30,50,.08)}
+.dv-next{margin:30px 0 0;font:400 13px/1.7 'Krona One',sans-serif;color:rgba(0,0,0,.5)}
+@keyframes m-sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes m-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes m-fly{0%{offset-distance:0%}100%{offset-distance:100%}}
+</style>
+</helmet>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+<defs>
+<symbol id="m-hex" viewBox="0 0 100 88"><polygon points="25,2 75,2 98,44 75,86 25,86 2,44" fill="currentColor"/></symbol>
+<symbol id="m-poppy" viewBox="0 0 100 100">
+  <circle cx="50" cy="32" r="21" fill="#e2392b"/><circle cx="72" cy="46" r="21" fill="#d22c20"/><circle cx="63" cy="72" r="21" fill="#e2392b"/><circle cx="37" cy="72" r="21" fill="#d22c20"/><circle cx="28" cy="46" r="21" fill="#e2392b"/>
+  <circle cx="50" cy="52" r="14" fill="#1c1c22"/>
+  <circle cx="50" cy="40" r="2.4" fill="#1c1c22"/><circle cx="60" cy="48" r="2.4" fill="#1c1c22"/><circle cx="56" cy="60" r="2.4" fill="#1c1c22"/><circle cx="44" cy="60" r="2.4" fill="#1c1c22"/><circle cx="40" cy="48" r="2.4" fill="#1c1c22"/>
+</symbol>
+<symbol id="m-daisy" viewBox="0 0 100 100">
+  <g fill="#f6f1dc"><ellipse cx="50" cy="24" rx="8" ry="16"/><ellipse cx="76" cy="50" rx="16" ry="8"/><ellipse cx="50" cy="76" rx="8" ry="16"/><ellipse cx="24" cy="50" rx="16" ry="8"/><ellipse cx="68" cy="32" rx="8" ry="15" transform="rotate(45 68 32)"/><ellipse cx="68" cy="68" rx="8" ry="15" transform="rotate(-45 68 68)"/><ellipse cx="32" cy="68" rx="8" ry="15" transform="rotate(45 32 68)"/><ellipse cx="32" cy="32" rx="8" ry="15" transform="rotate(-45 32 32)"/></g>
+  <circle cx="50" cy="50" r="14" fill="#f2b32c"/>
+</symbol>
+<symbol id="m-clover" viewBox="0 0 100 120">
+  <rect x="47" y="55" width="6" height="60" rx="3" fill="#1f8a70"/>
+  <circle cx="30" cy="95" r="11" fill="#2f9e7f"/><circle cx="70" cy="90" r="11" fill="#2f9e7f"/>
+  <g fill="#e7a2b8"><circle cx="50" cy="30" r="10"/><circle cx="36" cy="38" r="9"/><circle cx="64" cy="38" r="9"/><circle cx="30" cy="52" r="9"/><circle cx="70" cy="52" r="9"/><circle cx="43" cy="50" r="9"/><circle cx="57" cy="50" r="9"/><circle cx="50" cy="45" r="9"/></g>
+  <g fill="#f6f1dc" opacity=".85"><circle cx="50" cy="30" r="3.2"/><circle cx="38" cy="42" r="3.2"/><circle cx="62" cy="42" r="3.2"/><circle cx="50" cy="45" r="3.2"/></g>
+</symbol>
+<symbol id="m-tree" viewBox="0 0 100 120">
+  <rect x="45" y="70" width="10" height="46" rx="4" fill="#155a49"/>
+  <circle cx="50" cy="46" r="34" fill="#2f9e7f"/><circle cx="50" cy="46" r="34" fill="none"/>
+  <g fill="#f6f1dc"><circle cx="42" cy="34" r="2.6"/><circle cx="58" cy="40" r="2.6"/><circle cx="50" cy="54" r="2.6"/><circle cx="38" cy="50" r="2.6"/><circle cx="62" cy="56" r="2.6"/></g>
+</symbol>
+<symbol id="m-hive" viewBox="0 0 100 120">
+  <rect x="14" y="30" width="72" height="16" rx="3" fill="#e2971b"/>
+  <rect x="20" y="46" width="60" height="24" fill="#1e2a41"/>
+  <rect x="20" y="72" width="60" height="24" fill="#243354"/>
+  <rect x="14" y="96" width="72" height="16" rx="3" fill="#1e2a41"/>
+  <polygon points="10,30 90,30 50,10" fill="#e2971b"/>
+  <rect x="40" y="86" width="20" height="6" rx="3" fill="#f2b32c"/>
+</symbol>
+<symbol id="m-bee" viewBox="0 0 120 90">
+  <ellipse cx="62" cy="52" rx="30" ry="22" fill="#f2b32c"/>
+  <path d="M50 32 A30 22 0 0 1 50 72 Z" fill="#1c1c22" opacity=".0"/>
+  <rect x="50" y="30" width="9" height="44" fill="#1c1c22"/><rect x="66" y="32" width="9" height="40" fill="#1c1c22"/>
+  <circle cx="90" cy="46" r="8" fill="#1c1c22"/>
+  <ellipse cx="46" cy="30" rx="16" ry="10" fill="#f6f1dc" opacity=".9" transform="rotate(-25 46 30)"/>
+  <ellipse cx="66" cy="28" rx="15" ry="9" fill="#f6f1dc" opacity=".9" transform="rotate(20 66 28)"/>
+</symbol>
+<symbol id="m-wheat" viewBox="0 0 60 130">
+  <rect x="27" y="40" width="5" height="88" rx="2.5" fill="#e2971b"/>
+  <g fill="#f2b32c"><ellipse cx="30" cy="16" rx="7" ry="13"/><ellipse cx="18" cy="30" rx="6" ry="11" transform="rotate(-30 18 30)"/><ellipse cx="42" cy="30" rx="6" ry="11" transform="rotate(30 42 30)"/><ellipse cx="16" cy="48" rx="6" ry="11" transform="rotate(-30 16 48)"/><ellipse cx="44" cy="48" rx="6" ry="11" transform="rotate(30 44 48)"/></g>
+</symbol>
+</defs>
+</svg>
+
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Lielvaicēni sākumlapa — 3 virzieni</span></div>
+  <div class="dv-opts">
+
+    <!-- ============ OPTION 1a — MEADOW POSTER ============ -->
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Pļavas plakāts — ilustrētā aina no etiķetes, drosmīga grafika</div>
+      <div class="dv-card" style="--ink:#182234;--navy:#1e2a41;--cream:#f4efdb;--cream2:#efe7c9;--gold:#f2b32c;--goldd:#e2971b;--honey:#f7cf20;--teal:#1f8a70;--teald:#155a49;--teall:#3aa587;--poppy:#e2392b;--sky:#e6efe0;font-family:'PMESAN',sans-serif;color:var(--ink)">
+
+        <!-- header -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:var(--navy)">
+          <img src="assets/logo-cream.png" alt="Lielvaicēni" style="height:42px;width:auto">
+          <div style="display:flex;align-items:center;gap:26px;font:400 13px/1 'Krona One',sans-serif;color:var(--cream);letter-spacing:.3px">
+            <span style="opacity:.95">Sākums</span><span style="opacity:.62">Par mums</span><span style="opacity:.62">Produkti</span><span style="opacity:.62">Pakalpojumi</span><span style="opacity:.62">Invertsīrups</span><span style="opacity:.62">Kontakti</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;background:var(--honey);color:var(--ink);padding:9px 16px;border-radius:40px;font:400 13px/1 'Krona One',sans-serif"><span style="width:7px;height:7px;border-radius:50%;background:var(--ink)"></span>+371 29161420</div>
+        </div>
+
+        <!-- HERO with illustrated meadow -->
+        <div style="position:relative;background:var(--sky);overflow:hidden">
+          <svg viewBox="0 0 1280 300" width="100%" style="display:block;position:absolute;bottom:0;left:0" preserveAspectRatio="xMidYMax meet">
+            <circle cx="1000" cy="250" r="150" fill="var(--gold)"/>
+            <circle cx="1000" cy="250" r="185" fill="var(--gold)" opacity=".22"/>
+            <path d="M0 210 Q 320 150 640 200 T 1280 190 L1280 300 L0 300 Z" fill="var(--teall)"/>
+            <path d="M0 250 Q 380 200 780 245 T 1280 240 L1280 300 L0 300 Z" fill="var(--teal)"/>
+            <path d="M0 285 Q 420 258 900 285 T 1280 282 L1280 300 L0 300 Z" fill="var(--teald)"/>
+          </svg>
+          <div style="position:relative;padding:64px 56px 40px;max-width:760px">
+            <div style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--cream);padding:8px 15px;border-radius:40px;font:400 11px/1 'Krona One',sans-serif;letter-spacing:.6px;margin-bottom:24px">DAUDZNOZARU SAIMNIECĪBA · KOPŠ 1992</div>
+            <h1 style="margin:0;font-family:'PMESAN',sans-serif;font-weight:700;font-size:66px;line-height:.98;letter-spacing:-1px;color:var(--ink)">Medus, bišu maize<br>un ziedputekšņi<br>tieši no dravas.</h1>
+            <p style="margin:22px 0 0;font-size:19px;line-height:1.55;color:#3c4658;max-width:520px">Z/S Lielvaicēni apsaimnieko <b>250 bišu saimes</b> Zemgales laukos un ražo tradicionālus biškopības produktus jau vairāk nekā 30 gadus.</p>
+            <div style="display:flex;gap:14px;margin-top:30px">
+              <a style="display:inline-flex;align-items:center;gap:9px;background:var(--goldd);color:#fff;padding:15px 26px;border-radius:44px;font:400 14px/1 'Krona One',sans-serif;text-decoration:none">Apskatīt produktus →</a>
+              <a style="display:inline-flex;align-items:center;background:transparent;color:var(--ink);padding:15px 26px;border-radius:44px;border:2px solid var(--ink);font:400 14px/1 'Krona One',sans-serif;text-decoration:none">Par saimniecību</a>
+            </div>
+          </div>
+          <!-- foreground meadow flowers -->
+          <div style="position:relative;height:150px;margin-top:-6px">
+            <svg width="112" viewBox="0 0 60 130" style="position:absolute;bottom:0;left:64px;transform-origin:bottom center;animation:m-sway 6s ease-in-out infinite"><use href="#m-wheat"/></svg>
+            <svg width="96" viewBox="0 0 100 100" style="position:absolute;bottom:8px;left:150px"><use href="#m-poppy"/></svg>
+            <svg width="80" viewBox="0 0 100 120" style="position:absolute;bottom:0;left:250px;transform-origin:bottom center;animation:m-sway 7s ease-in-out infinite .5s"><use href="#m-clover"/></svg>
+            <svg width="120" viewBox="0 0 100 120" style="position:absolute;bottom:0;left:980px"><use href="#m-hive"/></svg>
+            <svg width="70" viewBox="0 0 100 100" style="position:absolute;bottom:70px;left:860px"><use href="#m-daisy"/></svg>
+            <svg width="86" viewBox="0 0 100 100" style="position:absolute;bottom:4px;right:150px"><use href="#m-poppy"/></svg>
+            <svg width="60" viewBox="0 0 120 90" style="position:absolute;bottom:118px;left:1120px;animation:m-bob 3s ease-in-out infinite"><use href="#m-bee"/></svg>
+          </div>
+        </div>
+
+        <!-- HONEYCOMB divider -->
+        <div style="display:flex;justify-content:center;gap:6px;background:var(--navy);padding:14px 0">
+          <span style="color:var(--honey);display:flex"><svg width="26" viewBox="0 0 100 88"><use href="#m-hex"/></svg></span>
+          <span style="color:var(--honey);display:flex"><svg width="26" viewBox="0 0 100 88"><use href="#m-hex"/></svg></span>
+          <span style="color:var(--honey);display:flex"><svg width="26" viewBox="0 0 100 88"><use href="#m-hex"/></svg></span>
+          <span style="color:var(--honey);display:flex"><svg width="26" viewBox="0 0 100 88"><use href="#m-hex"/></svg></span>
+          <span style="color:var(--honey);display:flex"><svg width="26" viewBox="0 0 100 88"><use href="#m-hex"/></svg></span>
+        </div>
+
+        <!-- PRODUCTS as label-style cards -->
+        <div style="padding:56px 56px 60px;background:var(--cream)">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:34px">
+            <div>
+              <div style="font:400 12px/1 'Krona One',sans-serif;letter-spacing:.6px;color:var(--goldd);margin-bottom:12px">MŪSU PRODUKTI</div>
+              <h2 style="margin:0;font-family:'PMESAN';font-weight:700;font-size:42px;line-height:1;color:var(--ink)">No mūsu dravas jūsu galdam</h2>
+            </div>
+            <a style="font:400 13px/1 'Krona One',sans-serif;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--goldd);padding-bottom:4px">Visi produkti →</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
+            <!-- card medus -->
+            <div style="border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 14px 30px -18px rgba(20,30,50,.45)">
+              <div style="position:relative;height:190px;background:#eef2df;overflow:hidden">
+                <svg viewBox="0 0 400 190" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                  <rect width="400" height="190" fill="#eef2df"/>
+                  <circle cx="300" cy="150" r="80" fill="var(--gold)"/>
+                  <path d="M0 120 Q120 90 240 115 T400 108 L400 190 L0 190Z" fill="var(--teall)"/>
+                  <path d="M0 150 Q140 128 300 150 T400 148 L400 190 L0 190Z" fill="var(--teal)"/>
+                </svg>
+                <svg width="64" viewBox="0 0 100 120" style="position:absolute;bottom:0;left:24px"><use href="#m-clover"/></svg>
+                <svg width="80" viewBox="0 0 100 120" style="position:absolute;bottom:-6px;left:120px"><use href="#m-tree"/></svg>
+              </div>
+              <div style="background:var(--navy);padding:20px 22px;color:var(--cream)">
+                <div style="font-family:'PMESAN';font-weight:700;font-size:26px;line-height:1">Dažādu ziedu medus</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span style="font:400 12px/1 'Krona One',sans-serif;opacity:.7">700 g</span><span style="color:var(--honey);font:400 12px/1 'Krona One',sans-serif">Skatīt →</span></div>
+              </div>
+            </div>
+            <!-- card bisu maize -->
+            <div style="border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 14px 30px -18px rgba(20,30,50,.45)">
+              <div style="position:relative;height:190px;background:#dfeaf0;overflow:hidden">
+                <svg viewBox="0 0 400 190" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                  <rect width="400" height="190" fill="#dfeaf0"/>
+                  <ellipse cx="90" cy="40" rx="34" ry="14" fill="#fff" opacity=".8"/><ellipse cx="300" cy="60" rx="40" ry="15" fill="#fff" opacity=".7"/>
+                  <path d="M0 120 Q120 96 240 118 T400 112 L400 190 L0 190Z" fill="var(--teal)"/>
+                  <path d="M0 150 Q140 132 300 152 T400 150 L400 190 L0 190Z" fill="var(--teald)"/>
+                </svg>
+                <svg width="80" viewBox="0 0 100 100" style="position:absolute;bottom:8px;left:30px"><use href="#m-poppy"/></svg>
+                <svg width="60" viewBox="0 0 100 100" style="position:absolute;bottom:64px;left:150px"><use href="#m-daisy"/></svg>
+                <svg width="86" viewBox="0 0 100 120" style="position:absolute;bottom:-4px;right:26px"><use href="#m-hive"/></svg>
+              </div>
+              <div style="background:var(--navy);padding:20px 22px;color:var(--cream)">
+                <div style="font-family:'PMESAN';font-weight:700;font-size:26px;line-height:1">Bišu maize</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span style="font:400 12px/1 'Krona One',sans-serif;opacity:.7">125 g</span><span style="color:var(--honey);font:400 12px/1 'Krona One',sans-serif">Skatīt →</span></div>
+              </div>
+            </div>
+            <!-- card ziedputeksni -->
+            <div style="border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 14px 30px -18px rgba(20,30,50,.45)">
+              <div style="position:relative;height:190px;background:#f3ead4;overflow:hidden">
+                <svg viewBox="0 0 400 190" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                  <rect width="400" height="190" fill="#f3ead4"/>
+                  <circle cx="110" cy="150" r="70" fill="var(--goldd)"/>
+                  <path d="M0 130 Q120 104 240 126 T400 120 L400 190 L0 190Z" fill="var(--teall)"/>
+                </svg>
+                <svg width="70" viewBox="0 0 100 100" style="position:absolute;bottom:10px;left:210px"><use href="#m-daisy"/></svg>
+                <svg width="96" viewBox="0 0 60 130" style="position:absolute;bottom:0;right:40px"><use href="#m-wheat"/></svg>
+                <svg width="72" viewBox="0 0 100 100" style="position:absolute;bottom:6px;right:150px"><use href="#m-poppy"/></svg>
+              </div>
+              <div style="background:var(--navy);padding:20px 22px;color:var(--cream)">
+                <div style="font-family:'PMESAN';font-weight:700;font-size:26px;line-height:1">Ziedputekšņi</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span style="font:400 12px/1 'Krona One',sans-serif;opacity:.7">125 g</span><span style="color:var(--honey);font:400 12px/1 'Krona One',sans-serif">Skatīt →</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATS band -->
+        <div style="background:var(--navy);color:var(--cream);padding:54px 56px;position:relative;overflow:hidden">
+          <svg width="220" viewBox="0 0 100 120" style="position:absolute;right:40px;top:-10px;opacity:.10;color:var(--honey)"><use href="#m-hex"/></svg>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+            <div><div style="font-family:'Krona One';font-size:52px;line-height:1;color:var(--honey)">1992</div><div style="font:400 12px/1.4 'Krona One',sans-serif;opacity:.7;margin-top:10px">DIBINĀŠANAS GADS</div></div>
+            <div><div style="font-family:'Krona One';font-size:52px;line-height:1;color:var(--honey)">250</div><div style="font:400 12px/1.4 'Krona One',sans-serif;opacity:.7;margin-top:10px">BIŠU SAIMES</div></div>
+            <div><div style="font-family:'Krona One';font-size:52px;line-height:1;color:var(--honey)">500 ha</div><div style="font:400 12px/1.4 'Krona One',sans-serif;opacity:.7;margin-top:10px">SĒJUMU LAUKU</div></div>
+            <div><div style="font-family:'Krona One';font-size:52px;line-height:1;color:var(--honey)">200 ha</div><div style="font:400 12px/1.4 'Krona One',sans-serif;opacity:.7;margin-top:10px">MEŽU</div></div>
+          </div>
+        </div>
+
+        <!-- Ambrosia / feed strip -->
+        <div style="display:grid;grid-template-columns:1.1fr 1fr;background:var(--cream2)">
+          <div style="padding:52px 56px">
+            <div style="font:400 12px/1 'Krona One',sans-serif;letter-spacing:.6px;color:var(--goldd);margin-bottom:14px">PAKALPOJUMI BIŠKOPJIEM</div>
+            <h2 style="margin:0 0 14px;font-family:'PMESAN';font-weight:700;font-size:40px;line-height:1.02;color:var(--ink)">Ambrosia bišu barība un invertsīrups</h2>
+            <p style="margin:0 0 24px;font-size:17px;line-height:1.55;color:#3c4658;max-width:440px">Esam vienīgie Ambrosia izplatītāji Baltijā — viena no kvalitatīvākajām bišu barībām pasaulē. Piedāvājam arī vaska šūnu un bišu maizes pārstrādi.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <span style="background:#fff;border:1px solid rgba(20,30,50,.12);padding:10px 16px;border-radius:40px;font:400 13px/1 'Krona One',sans-serif">Invertsīrups</span>
+              <span style="background:#fff;border:1px solid rgba(20,30,50,.12);padding:10px 16px;border-radius:40px;font:400 13px/1 'Krona One',sans-serif">Kandijs</span>
+              <span style="background:#fff;border:1px solid rgba(20,30,50,.12);padding:10px 16px;border-radius:40px;font:400 13px/1 'Krona One',sans-serif">Vaska šūnas</span>
+              <span style="background:#fff;border:1px solid rgba(20,30,50,.12);padding:10px 16px;border-radius:40px;font:400 13px/1 'Krona One',sans-serif">Bišu mātes</span>
+            </div>
+          </div>
+          <div style="position:relative;background:var(--navy);overflow:hidden;min-height:290px;display:flex;align-items:center;justify-content:center">
+            <svg width="100%" viewBox="0 0 500 300" style="position:absolute;inset:0">
+              <g opacity=".16" fill="var(--honey)"><use href="#m-hex" x="40" y="40" width="60" height="53"/><use href="#m-hex" x="110" y="80" width="60" height="53"/><use href="#m-hex" x="40" y="120" width="60" height="53"/></g>
+            </svg>
+            <div style="position:relative;text-align:center;color:var(--cream)">
+              <div style="font-family:'Krona One';font-size:62px;line-height:1;color:var(--honey)">28<span style="font-size:26px">kg</span></div>
+              <div style="font:400 13px/1.5 'Krona One',sans-serif;opacity:.75;margin-top:8px">KASTE · NO 34 €</div>
+              <div style="width:64px;height:2px;background:var(--goldd);margin:18px auto"></div>
+              <div style="font-size:15px;opacity:.85;max-width:280px;margin:0 auto">Strādājam katru darba dienu 8—17, arī brīvdienās pēc vienošanās.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHERE TO BUY -->
+        <div style="padding:50px 56px;background:var(--cream)">
+          <div style="font:400 12px/1 'Krona One',sans-serif;letter-spacing:.6px;color:var(--goldd);margin-bottom:12px">KUR NOPIRKT</div>
+          <h2 style="margin:0 0 24px;font-family:'PMESAN';font-weight:700;font-size:34px;line-height:1;color:var(--ink)">Tirdzniecības vietas</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <span style="background:#fff;border:1px solid rgba(20,30,50,.10);padding:11px 17px;border-radius:10px;font-size:15px">"Bišu bode" · Rīga</span>
+            <span style="background:#fff;border:1px solid rgba(20,30,50,.10);padding:11px 17px;border-radius:10px;font-size:15px">Āgenskalna aptieka · Rīga</span>
+            <span style="background:#fff;border:1px solid rgba(20,30,50,.10);padding:11px 17px;border-radius:10px;font-size:15px">Gemoss · Rīga</span>
+            <span style="background:#fff;border:1px solid rgba(20,30,50,.10);padding:11px 17px;border-radius:10px;font-size:15px">Jelgavas Pils aptieka · Jelgava</span>
+            <span style="background:#fff;border:1px solid rgba(20,30,50,.10);padding:11px 17px;border-radius:10px;font-size:15px">Agnoras · Dobele</span>
+            <span style="background:#fff;border:1px solid rgba(20,30,50,.10);padding:11px 17px;border-radius:10px;font-size:15px">Interneta veikals ARN</span>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="background:var(--ink);color:var(--cream);padding:46px 56px 30px">
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;align-items:start">
+            <div>
+              <img src="assets/logo-cream.png" alt="Lielvaicēni" style="height:48px;margin-bottom:16px">
+              <p style="margin:0;font-size:15px;line-height:1.6;opacity:.8;max-width:320px">Daudznozaru saimniecība kopš 1992. gada. Medus, biškopības produkti un pakalpojumi biškopjiem.</p>
+            </div>
+            <div style="font-size:15px;line-height:1.9;opacity:.85">
+              <div style="font:400 11px/1 'Krona One',sans-serif;opacity:.6;margin-bottom:12px">KONTAKTI</div>
+              +371 29161420<br>lielvaiceni@inbox.lv
+            </div>
+            <div style="font-size:15px;line-height:1.9;opacity:.85">
+              <div style="font:400 11px/1 'Krona One',sans-serif;opacity:.6;margin-bottom:12px">ADRESE</div>
+              "Lielvaicēni"<br>Vītiņu pagasts, Dobeles novads<br>LV-3708
+            </div>
+          </div>
+          <div style="border-top:1px solid rgba(244,239,219,.15);margin-top:30px;padding-top:18px;font:400 11px/1 'Krona One',sans-serif;opacity:.5">© 2025 Z/S LIELVAICĒNI</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ============ OPTION 1b — SHOP-FORWARD / BRIGHT ============ -->
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Veikala virziens — gaišs, produkti priekšplānā ar reālām etiķetēm</div>
+      <div class="dv-card" style="--ink:#182234;--navy:#1e2a41;--cream:#f4efdb;--cream2:#efe7c9;--gold:#f2b32c;--goldd:#e2971b;--honey:#f7cf20;--teal:#1f8a70;--teald:#155a49;--teall:#3aa587;--poppy:#e2392b;font-family:'PMESAN',sans-serif;color:var(--ink);background:#faf7ec">
+
+        <!-- header light -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:#faf7ec;border-bottom:1px solid rgba(20,30,50,.10)">
+          <img src="assets/logo-trans.png" alt="Lielvaicēni" style="height:40px;width:auto">
+          <div style="display:flex;align-items:center;gap:24px;font:400 13px/1 'Krona One',sans-serif;color:var(--ink);letter-spacing:.3px">
+            <span style="color:var(--goldd)">Sākums</span><span style="opacity:.7">Par mums</span><span style="opacity:.7">Produkti</span><span style="opacity:.7">Pakalpojumi</span><span style="opacity:.7">Invertsīrups</span><span style="opacity:.7">Kontakti</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;background:var(--navy);color:var(--cream);padding:10px 17px;border-radius:40px;font:400 13px/1 'Krona One',sans-serif">+371 29161420</div>
+        </div>
+
+        <!-- HERO split -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:56px 56px 40px;gap:20px;position:relative">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;color:var(--goldd);font:400 12px/1 'Krona One',sans-serif;letter-spacing:.5px;margin-bottom:20px"><span style="width:22px;height:2px;background:var(--goldd)"></span>KOPŠ 1992 · ZEMGALĒ</div>
+            <h1 style="margin:0;font-family:'PMESAN';font-weight:700;font-size:70px;line-height:.95;letter-spacing:-1.5px">Tīrs medus<br>no Zemgales<br><span style="color:var(--goldd)">dravām.</span></h1>
+            <p style="margin:22px 0 0;font-size:18px;line-height:1.55;color:#3c4658;max-width:440px">Medus, bišu maize un ziedputekšņi no 250 mūsu bišu saimēm — tradicionāli, dabīgi un tieši no biškopja.</p>
+            <div style="display:flex;gap:13px;margin-top:30px">
+              <a style="display:inline-flex;align-items:center;gap:9px;background:var(--goldd);color:#fff;padding:15px 26px;border-radius:44px;font:400 14px/1 'Krona One',sans-serif;text-decoration:none">Iepirkties →</a>
+              <a style="display:inline-flex;align-items:center;color:var(--ink);padding:15px 22px;border-radius:44px;font:400 14px/1 'Krona One',sans-serif;text-decoration:none;border:2px solid rgba(20,30,50,.18)">Par mums</a>
+            </div>
+            <div style="display:flex;gap:5px;margin-top:34px;color:var(--honey)">
+              <svg width="22" viewBox="0 0 100 88"><use href="#m-hex"/></svg><svg width="22" viewBox="0 0 100 88"><use href="#m-hex"/></svg><svg width="22" viewBox="0 0 100 88"><use href="#m-hex"/></svg><svg width="22" viewBox="0 0 100 88"><use href="#m-hex"/></svg>
+            </div>
+          </div>
+          <div style="position:relative;display:flex;justify-content:center;align-items:center;min-height:420px">
+            <div style="position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,var(--gold) 0%,var(--gold) 55%,transparent 70%);opacity:.28"></div>
+            <svg width="70" viewBox="0 0 100 88" style="position:absolute;top:20px;left:30px;color:var(--honey);opacity:.5"><use href="#m-hex"/></svg>
+            <svg width="46" viewBox="0 0 100 88" style="position:absolute;bottom:40px;right:24px;color:var(--goldd);opacity:.4"><use href="#m-hex"/></svg>
+            <svg width="60" viewBox="0 0 120 90" style="position:absolute;top:60px;right:40px;animation:m-bob 3s ease-in-out infinite"><use href="#m-bee"/></svg>
+            <img src="assets/label-medus.png" alt="Dažādu ziedu medus" style="position:relative;width:430px;max-width:100%;filter:drop-shadow(0 30px 40px rgba(20,30,50,.28))">
+          </div>
+        </div>
+
+        <!-- PRODUCTS grid shop -->
+        <div style="padding:20px 56px 58px">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px">
+            <h2 style="margin:0;font-family:'PMESAN';font-weight:700;font-size:38px;line-height:1">Mūsu produkti</h2>
+            <span style="font:400 12px/1.5 'Krona One',sans-serif;color:#5a6472;max-width:320px;text-align:right">Ražots un fasēts mūsu saimniecībā Vītiņu pagastā</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+            <!-- p1 -->
+            <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(20,30,50,.08)">
+              <div style="height:210px;background:#f4efdb;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="assets/label-medus.png" alt="medus" style="width:150%;max-width:150%"></div>
+              <div style="padding:18px 20px">
+                <div style="font:400 10px/1 'Krona One',sans-serif;color:var(--goldd);letter-spacing:.5px;margin-bottom:8px">MEDUS</div>
+                <div style="font-family:'PMESAN';font-weight:700;font-size:21px;line-height:1.05">Dažādu ziedu medus</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-size:14px;color:#5a6472">700 g</span><span style="background:var(--navy);color:var(--cream);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div>
+              </div>
+            </div>
+            <!-- p2 -->
+            <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(20,30,50,.08)">
+              <div style="height:210px;background:#eef2df;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="assets/label-bisu-maize.png" alt="bišu maize" style="width:150%;max-width:150%"></div>
+              <div style="padding:18px 20px">
+                <div style="font:400 10px/1 'Krona One',sans-serif;color:var(--goldd);letter-spacing:.5px;margin-bottom:8px">BIŠKOPĪBA</div>
+                <div style="font-family:'PMESAN';font-weight:700;font-size:21px;line-height:1.05">Bišu maize</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-size:14px;color:#5a6472">125 g</span><span style="background:var(--navy);color:var(--cream);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div>
+              </div>
+            </div>
+            <!-- p3 illustrated -->
+            <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(20,30,50,.08)">
+              <div style="height:210px;background:#f3ead4;position:relative;overflow:hidden">
+                <svg viewBox="0 0 300 210" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="300" height="210" fill="#f3ead4"/><circle cx="90" cy="170" r="70" fill="var(--goldd)"/><path d="M0 150 Q90 124 180 146 T300 140 L300 210 L0 210Z" fill="var(--teall)"/></svg>
+                <svg width="66" viewBox="0 0 100 100" style="position:absolute;bottom:22px;left:120px"><use href="#m-daisy"/></svg>
+                <svg width="90" viewBox="0 0 60 130" style="position:absolute;bottom:0;right:26px"><use href="#m-wheat"/></svg>
+              </div>
+              <div style="padding:18px 20px">
+                <div style="font:400 10px/1 'Krona One',sans-serif;color:var(--goldd);letter-spacing:.5px;margin-bottom:8px">BIŠKOPĪBA</div>
+                <div style="font-family:'PMESAN';font-weight:700;font-size:21px;line-height:1.05">Ziedputekšņi</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-size:14px;color:#5a6472">125 g</span><span style="background:var(--navy);color:var(--cream);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div>
+              </div>
+            </div>
+            <!-- p4 ambrosia -->
+            <div style="background:var(--navy);border-radius:14px;overflow:hidden;color:var(--cream);position:relative">
+              <div style="height:210px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center">
+                <svg width="100%" viewBox="0 0 300 210" style="position:absolute;inset:0"><g opacity=".14" fill="var(--honey)"><use href="#m-hex" x="20" y="20" width="54" height="48"/><use href="#m-hex" x="80" y="54" width="54" height="48"/><use href="#m-hex" x="20" y="90" width="54" height="48"/></g></svg>
+                <div style="position:relative;text-align:center"><div style="font-family:'Krona One';font-size:44px;line-height:1;color:var(--honey)">28<span style="font-size:18px">kg</span></div><div style="font:400 11px/1 'Krona One',sans-serif;opacity:.7;margin-top:6px">NO 34 €</div></div>
+              </div>
+              <div style="padding:18px 20px">
+                <div style="font:400 10px/1 'Krona One',sans-serif;color:var(--honey);letter-spacing:.5px;margin-bottom:8px">AMBROSIA</div>
+                <div style="font-family:'PMESAN';font-weight:700;font-size:21px;line-height:1.05">Bišu barība</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-size:14px;opacity:.65">Invertsīrups · kandijs</span><span style="background:var(--honey);color:var(--ink);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">→</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHY features -->
+        <div style="background:var(--cream);padding:52px 56px">
+          <div style="text-align:center;margin-bottom:40px"><div style="font:400 12px/1 'Krona One',sans-serif;color:var(--goldd);letter-spacing:.6px;margin-bottom:12px">KĀPĒC LIELVAICĒNI</div><h2 style="margin:0;font-family:'PMESAN';font-weight:700;font-size:38px;line-height:1">Tradīcija kopš 1992. gada</h2></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:34px">
+            <div style="text-align:center">
+              <div style="width:72px;height:72px;margin:0 auto 18px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--honey)"><svg width="34" viewBox="0 0 100 88"><use href="#m-hex"/></svg></div>
+              <div style="font-family:'PMESAN';font-weight:700;font-size:22px;margin-bottom:8px">250 bišu saimes</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#5a6472;max-width:300px;margin-inline:auto">Pašu dravas Zemgales nektāraugu laukos un mežmalās.</p>
+            </div>
+            <div style="text-align:center">
+              <div style="width:72px;height:72px;margin:0 auto 18px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="42" viewBox="0 0 100 120"><use href="#m-hive"/></svg></div>
+              <div style="font-family:'PMESAN';font-weight:700;font-size:22px;margin-bottom:8px">Sava pārstrāde</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#5a6472;max-width:300px;margin-inline:auto">Vaska šūnu un bišu maizes pārstrāde, bišu māšu audzēšana.</p>
+            </div>
+            <div style="text-align:center">
+              <div style="width:72px;height:72px;margin:0 auto 18px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="40" viewBox="0 0 100 120"><use href="#m-clover"/></svg></div>
+              <div style="font-family:'PMESAN';font-weight:700;font-size:22px;margin-bottom:8px">Tikai dabīgs</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#5a6472;max-width:300px;margin-inline:auto">Nektāraugi audzēti pašu 500 ha laukos — pupas, rapsis, zirņi.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA band -->
+        <div style="background:var(--goldd);padding:46px 56px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden">
+          <svg width="200" viewBox="0 0 100 88" style="position:absolute;right:-20px;top:-30px;color:#fff;opacity:.12"><use href="#m-hex"/></svg>
+          <div style="position:relative">
+            <h2 style="margin:0 0 6px;font-family:'PMESAN';font-weight:700;font-size:34px;line-height:1;color:#fff">Vēlies iegādāties medu vairumā?</h2>
+            <p style="margin:0;font-size:16px;color:#fff;opacity:.9">Zvani vai raksti — strādājam katru darba dienu 8—17.</p>
+          </div>
+          <a style="position:relative;background:var(--navy);color:var(--cream);padding:16px 30px;border-radius:44px;font:400 14px/1 'Krona One',sans-serif;text-decoration:none;white-space:nowrap">Sazināties →</a>
+        </div>
+
+        <!-- footer -->
+        <div style="background:var(--ink);color:var(--cream);padding:44px 56px 28px">
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;align-items:start">
+            <div><img src="assets/logo-cream.png" style="height:44px;margin-bottom:14px"><p style="margin:0;font-size:15px;line-height:1.6;opacity:.8;max-width:300px">Medus, biškopības produkti un pakalpojumi biškopjiem no Zemgales.</p></div>
+            <div style="font-size:15px;line-height:1.9;opacity:.85"><div style="font:400 11px/1 'Krona One',sans-serif;opacity:.6;margin-bottom:12px">KONTAKTI</div>+371 29161420<br>lielvaiceni@inbox.lv</div>
+            <div style="font-size:15px;line-height:1.9;opacity:.85"><div style="font:400 11px/1 'Krona One',sans-serif;opacity:.6;margin-bottom:12px">ADRESE</div>"Lielvaicēni", Vītiņu pag.<br>Dobeles novads, LV-3708</div>
+          </div>
+          <div style="border-top:1px solid rgba(244,239,219,.15);margin-top:28px;padding-top:18px;font:400 11px/1 'Krona One',sans-serif;opacity:.5">© 2025 Z/S LIELVAICĒNI</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============ OPTION 1c — EDITORIAL FARM STORY ============ -->
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Redakcionāls stāsts — premium, tumšs sākums, lieli skaitļi, ģimenes saimniecība</div>
+      <div class="dv-card" style="--ink:#151d2c;--navy:#1a2438;--cream:#f4efdb;--cream2:#efe7c9;--gold:#f2b32c;--goldd:#e2971b;--honey:#f7cf20;--teal:#1f8a70;--teald:#155a49;--teall:#3aa587;--poppy:#e2392b;font-family:'PMESAN',sans-serif;color:var(--cream);background:var(--navy)">
+
+        <!-- header on navy -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 44px">
+          <img src="assets/logo-cream.png" alt="Lielvaicēni" style="height:40px">
+          <div style="display:flex;align-items:center;gap:24px;font:400 13px/1 'Krona One',sans-serif;color:var(--cream);letter-spacing:.3px">
+            <span>Sākums</span><span style="opacity:.6">Par mums</span><span style="opacity:.6">Produkti</span><span style="opacity:.6">Pakalpojumi</span><span style="opacity:.6">Kontakti</span>
+          </div>
+          <div style="font:400 13px/1 'Krona One',sans-serif;color:var(--honey)">+371 29161420</div>
+        </div>
+
+        <!-- HERO editorial with sun -->
+        <div style="position:relative;padding:70px 44px 90px;overflow:hidden">
+          <svg viewBox="0 0 1280 400" width="100%" style="position:absolute;bottom:0;left:0" preserveAspectRatio="xMidYMax meet">
+            <circle cx="640" cy="470" r="300" fill="var(--goldd)" opacity=".16"/>
+            <circle cx="640" cy="500" r="220" fill="var(--gold)" opacity=".14"/>
+          </svg>
+          <div style="position:relative;text-align:center;max-width:900px;margin:0 auto">
+            <div style="display:inline-flex;align-items:center;gap:10px;color:var(--honey);font:400 12px/1 'Krona One',sans-serif;letter-spacing:.6px;margin-bottom:26px"><span style="width:26px;height:2px;background:var(--honey)"></span>DAUDZNOZARU SAIMNIECĪBA<span style="width:26px;height:2px;background:var(--honey)"></span></div>
+            <h1 style="margin:0;font-family:'PMESAN';font-weight:700;font-size:76px;line-height:.98;letter-spacing:-1.5px;color:var(--cream)">No dažām bišu saimēm<br>līdz veselam laukam.</h1>
+            <p style="margin:26px auto 0;font-size:19px;line-height:1.6;color:rgba(244,239,219,.8);max-width:600px">Z/S Lielvaicēni sākās 1992. gadā ar dažām bišu saimēm un 10 hektāriem aramzemes. Šodien tā ir viena no Zemgales pazīstamākajām biškopības saimniecībām.</p>
+            <div style="display:flex;gap:6px;justify-content:center;margin-top:34px;color:var(--honey)">
+              <svg width="24" viewBox="0 0 100 88"><use href="#m-hex"/></svg><svg width="24" viewBox="0 0 100 88"><use href="#m-hex"/></svg><svg width="24" viewBox="0 0 100 88"><use href="#m-hex"/></svg><svg width="24" viewBox="0 0 100 88"><use href="#m-hex"/></svg><svg width="24" viewBox="0 0 100 88"><use href="#m-hex"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- meadow decorative strip -->
+        <div style="position:relative;height:120px;background:var(--sky,#e6efe0)">
+          <svg viewBox="0 0 1280 120" width="100%" height="120" style="display:block" preserveAspectRatio="none"><path d="M0 60 Q320 30 640 55 T1280 50 L1280 120 L0 120Z" fill="var(--teall)"/><path d="M0 85 Q380 60 780 82 T1280 80 L1280 120 L0 120Z" fill="var(--teal)"/></svg>
+          <svg width="70" viewBox="0 0 100 100" style="position:absolute;bottom:6px;left:120px"><use href="#m-poppy"/></svg>
+          <svg width="60" viewBox="0 0 100 120" style="position:absolute;bottom:0;left:260px"><use href="#m-clover"/></svg>
+          <svg width="86" viewBox="0 0 100 120" style="position:absolute;bottom:-6px;right:200px"><use href="#m-hive"/></svg>
+          <svg width="56" viewBox="0 0 100 100" style="position:absolute;bottom:40px;right:360px"><use href="#m-daisy"/></svg>
+          <svg width="80" viewBox="0 0 60 130" style="position:absolute;bottom:0;left:520px"><use href="#m-wheat"/></svg>
+        </div>
+
+        <!-- STATS big editorial -->
+        <div style="background:var(--cream);color:var(--ink);padding:64px 44px">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center">
+            <div><div style="font-family:'Krona One';font-size:58px;line-height:1;color:var(--goldd)">1992</div><div style="font:400 11px/1.5 'Krona One',sans-serif;color:#5a6472;margin-top:12px">DIBINĀTS</div></div>
+            <div style="border-left:1px solid rgba(20,30,50,.12)"><div style="font-family:'Krona One';font-size:58px;line-height:1;color:var(--goldd)">250</div><div style="font:400 11px/1.5 'Krona One',sans-serif;color:#5a6472;margin-top:12px">BIŠU SAIMES</div></div>
+            <div style="border-left:1px solid rgba(20,30,50,.12)"><div style="font-family:'Krona One';font-size:58px;line-height:1;color:var(--goldd)">700</div><div style="font:400 11px/1.5 'Krona One',sans-serif;color:#5a6472;margin-top:12px">HA LAUKU UN MEŽU</div></div>
+            <div style="border-left:1px solid rgba(20,30,50,.12)"><div style="font-family:'Krona One';font-size:58px;line-height:1;color:var(--goldd)">30+</div><div style="font:400 11px/1.5 'Krona One',sans-serif;color:#5a6472;margin-top:12px">GADU PIEREDZE</div></div>
+          </div>
+        </div>
+
+        <!-- STORY split with portrait -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;background:var(--cream)">
+          <div style="position:relative;min-height:440px;background:#e7e0c6;overflow:hidden">
+            <img src="assets/portrets.png" alt="Saimniecības īpašnieks" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+            <div style="position:absolute;bottom:22px;left:22px;background:var(--navy);color:var(--cream);padding:12px 18px;border-radius:10px"><div style="font-family:'PMESAN';font-weight:700;font-size:18px;line-height:1">Artūrs Grudovskis</div><div style="font:400 11px/1 'Krona One',sans-serif;opacity:.7;margin-top:6px">SAIMNIECĪBAS ĪPAŠNIEKS · BIŠKOPIS</div></div>
+          </div>
+          <div style="padding:60px 52px;color:var(--ink);display:flex;flex-direction:column;justify-content:center">
+            <div style="font:400 12px/1 'Krona One',sans-serif;color:var(--goldd);letter-spacing:.6px;margin-bottom:16px">MŪSU STĀSTS</div>
+            <h2 style="margin:0 0 18px;font-family:'PMESAN';font-weight:700;font-size:40px;line-height:1.02">Ģimenes saimniecība ar dziļām saknēm</h2>
+            <p style="margin:0 0 16px;font-size:17px;line-height:1.6;color:#3c4658">Šobrīd 500 ha audzējam kviešus, rapsi, pupas, zirņus un nektāraugus, apsaimniekojam 200 ha mežu un 250 bišu saimes.</p>
+            <p style="margin:0;font-size:17px;line-height:1.6;color:#3c4658">Ražojam medu, bišu maizi un ziedputekšņus, kā arī nodrošinām vaska šūnu pārstrādi un esam vienīgie Ambrosia bišu barības izplatītāji Baltijā.</p>
+          </div>
+        </div>
+
+        <!-- PRODUCTS row on navy -->
+        <div style="background:var(--navy);padding:60px 44px">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px">
+            <h2 style="margin:0;font-family:'PMESAN';font-weight:700;font-size:40px;line-height:1;color:var(--cream)">Ko mēs ražojam</h2>
+            <a style="font:400 13px/1 'Krona One',sans-serif;color:var(--honey);text-decoration:none">Visi produkti →</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+            <div style="background:rgba(244,239,219,.06);border:1px solid rgba(244,239,219,.12);border-radius:14px;padding:30px;color:var(--cream)">
+              <svg width="46" viewBox="0 0 100 120" style="margin-bottom:20px"><use href="#m-clover"/></svg>
+              <div style="font-family:'PMESAN';font-weight:700;font-size:24px;margin-bottom:8px">Medus</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;opacity:.75">Dažādu ziedu, meža ziedu un viršu ziedu medus.</p>
+            </div>
+            <div style="background:rgba(244,239,219,.06);border:1px solid rgba(244,239,219,.12);border-radius:14px;padding:30px;color:var(--cream)">
+              <svg width="52" viewBox="0 0 100 100" style="margin-bottom:20px"><use href="#m-poppy"/></svg>
+              <div style="font-family:'PMESAN';font-weight:700;font-size:24px;margin-bottom:8px">Bišu maize & ziedputekšņi</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;opacity:.75">Dabīgi biškopības produkti veselībai.</p>
+            </div>
+            <div style="background:rgba(247,207,32,.10);border:1px solid rgba(247,207,32,.3);border-radius:14px;padding:30px;color:var(--cream)">
+              <svg width="46" viewBox="0 0 100 88" style="margin-bottom:20px;color:var(--honey)"><use href="#m-hex"/></svg>
+              <div style="font-family:'PMESAN';font-weight:700;font-size:24px;margin-bottom:8px;color:var(--honey)">Ambrosia barība</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;opacity:.85">Invertsīrups un kandijs biškopjiem — no 34 €.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTACT footer editorial -->
+        <div style="background:var(--ink);color:var(--cream);padding:56px 44px 30px">
+          <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;align-items:start">
+            <div>
+              <img src="assets/logo-cream.png" style="height:50px;margin-bottom:18px">
+              <p style="margin:0 0 20px;font-size:15px;line-height:1.6;opacity:.8;max-width:320px">Pieņemam apmeklētājus katru darba dienu 8—17, arī brīvdienās pēc iepriekšējas vienošanās.</p>
+              <a style="display:inline-flex;background:var(--honey);color:var(--ink);padding:14px 26px;border-radius:44px;font:400 13px/1 'Krona One',sans-serif;text-decoration:none">Sazināties →</a>
+            </div>
+            <div style="font-size:15px;line-height:1.9;opacity:.85"><div style="font:400 11px/1 'Krona One',sans-serif;opacity:.6;margin-bottom:12px">KONTAKTI</div>+371 29161420<br>lielvaiceni@inbox.lv</div>
+            <div style="font-size:15px;line-height:1.9;opacity:.85"><div style="font:400 11px/1 'Krona One',sans-serif;opacity:.6;margin-bottom:12px">ADRESE</div>"Lielvaicēni"<br>Vītiņu pagasts<br>Dobeles novads, LV-3708</div>
+          </div>
+          <div style="border-top:1px solid rgba(244,239,219,.15);margin-top:34px;padding-top:18px;font:400 11px/1 'Krona One',sans-serif;opacity:.5">© 2025 Z/S LIELVAICĒNI</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Mēģini tālāk: "izvērs <a class="dv-oid" href="#1a">1a</a> ar reālām produktu fotogrāfijām" · "padari <a class="dv-oid" href="#1b">1b</a> gaišāku" · "apvieno <a class="dv-oid" href="#1c">1c</a> stāstu ar <a class="dv-oid" href="#1a">1a</a> pļavu" · "jauns virziens"</p>
+</section>
+</x-dc>
+</body>
+</html>

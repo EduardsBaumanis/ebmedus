@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'PMESAN';src:url('fonts/PMESAN.ttf') format('truetype');font-display:swap}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#faf7ec;font-family:'PMESAN',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#182234}
+</style>
+</helmet>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+<symbol id="m-hex" viewBox="0 0 100 88"><polygon points="25,2 75,2 98,44 75,86 25,86 2,44" fill="currentColor"/></symbol>
+<symbol id="m-poppy" viewBox="0 0 100 100"><circle cx="50" cy="32" r="21" fill="#e2392b"/><circle cx="72" cy="46" r="21" fill="#d22c20"/><circle cx="63" cy="72" r="21" fill="#e2392b"/><circle cx="37" cy="72" r="21" fill="#d22c20"/><circle cx="28" cy="46" r="21" fill="#e2392b"/><circle cx="50" cy="52" r="14" fill="#1c1c22"/></symbol>
+<symbol id="m-daisy" viewBox="0 0 100 100"><g fill="#f6f1dc"><ellipse cx="50" cy="24" rx="8" ry="16"/><ellipse cx="76" cy="50" rx="16" ry="8"/><ellipse cx="50" cy="76" rx="8" ry="16"/><ellipse cx="24" cy="50" rx="16" ry="8"/><ellipse cx="68" cy="32" rx="8" ry="15" transform="rotate(45 68 32)"/><ellipse cx="68" cy="68" rx="8" ry="15" transform="rotate(-45 68 68)"/><ellipse cx="32" cy="68" rx="8" ry="15" transform="rotate(45 32 68)"/><ellipse cx="32" cy="32" rx="8" ry="15" transform="rotate(-45 32 32)"/></g><circle cx="50" cy="50" r="14" fill="#f2b32c"/></symbol>
+<symbol id="m-clover" viewBox="0 0 100 120"><rect x="47" y="55" width="6" height="60" rx="3" fill="#1f8a70"/><circle cx="30" cy="95" r="11" fill="#2f9e7f"/><circle cx="70" cy="90" r="11" fill="#2f9e7f"/><g fill="#e7a2b8"><circle cx="50" cy="30" r="10"/><circle cx="36" cy="38" r="9"/><circle cx="64" cy="38" r="9"/><circle cx="30" cy="52" r="9"/><circle cx="70" cy="52" r="9"/><circle cx="43" cy="50" r="9"/><circle cx="57" cy="50" r="9"/><circle cx="50" cy="45" r="9"/></g></symbol>
+<symbol id="m-hive" viewBox="0 0 100 120"><rect x="14" y="30" width="72" height="16" rx="3" fill="#e2971b"/><rect x="20" y="46" width="60" height="24" fill="#1e2a41"/><rect x="20" y="72" width="60" height="24" fill="#243354"/><rect x="14" y="96" width="72" height="16" rx="3" fill="#1e2a41"/><polygon points="10,30 90,30 50,10" fill="#e2971b"/><rect x="40" y="86" width="20" height="6" rx="3" fill="#f2b32c"/></symbol>
+<symbol id="m-wheat" viewBox="0 0 60 130"><rect x="27" y="40" width="5" height="88" rx="2.5" fill="#e2971b"/><g fill="#f2b32c"><ellipse cx="30" cy="16" rx="7" ry="13"/><ellipse cx="18" cy="30" rx="6" ry="11" transform="rotate(-30 18 30)"/><ellipse cx="42" cy="30" rx="6" ry="11" transform="rotate(30 42 30)"/><ellipse cx="16" cy="48" rx="6" ry="11" transform="rotate(-30 16 48)"/><ellipse cx="44" cy="48" rx="6" ry="11" transform="rotate(30 44 48)"/></g></symbol>
+<symbol id="m-tree" viewBox="0 0 100 120"><rect x="45" y="70" width="10" height="46" rx="4" fill="#155a49"/><circle cx="50" cy="46" r="34" fill="#2f9e7f"/><g fill="#f6f1dc"><circle cx="42" cy="34" r="2.6"/><circle cx="58" cy="40" r="2.6"/><circle cx="50" cy="54" r="2.6"/></g></symbol>
+</defs></svg>
+
+<dc-import name="Header" active="produkti" hint-size="100%,74px"></dc-import>
+
+<!-- hero -->
+<div style="max-width:1180px;margin:0 auto;padding:60px 44px 30px">
+  <div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;letter-spacing:.6px;margin-bottom:16px">PRODUKTI</div>
+  <h1 style="margin:0;font-weight:700;font-size:58px;line-height:1;letter-spacing:-1px">No mūsu dravas jūsu galdam</h1>
+  <p style="margin:22px 0 0;font-size:19px;line-height:1.6;color:#3c4658;max-width:620px">Tradicionāli biškopības produkti, ražoti un fasēti mūsu saimniecībā Vītiņu pagastā.</p>
+</div>
+
+<!-- MEDUS section -->
+<div style="max-width:1180px;margin:0 auto;padding:20px 44px">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px"><span style="color:#f7cf20;display:flex"><svg width="24" viewBox="0 0 100 88"><use href="#m-hex"/></svg></span><h2 style="margin:0;font-weight:700;font-size:30px">Medus</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+    <!-- dazadu ziedu -->
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;overflow:hidden">
+      <div style="height:200px;background:#f4efdb;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="assets/label-medus.png" style="width:145%;max-width:145%" alt="Dažādu ziedu medus"></div>
+      <div style="padding:20px 22px"><div style="font-weight:700;font-size:22px;line-height:1.05">Dažādu ziedu medus</div><p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:#5a6472">Viegls, universāls medus no daudzveidīgiem nektāraugiem.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b">700 g</span><span style="background:#1e2a41;color:#f4efdb;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div></div>
+    </div>
+    <!-- meza ziedu -->
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;overflow:hidden">
+      <div style="height:200px;background:#e7efe1;position:relative;overflow:hidden">
+        <svg viewBox="0 0 300 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="300" height="200" fill="#e7efe1"/><circle cx="230" cy="160" r="72" fill="#f2b32c"/><path d="M0 120 Q90 96 180 116 T300 110 L300 200 L0 200Z" fill="#3aa587"/><path d="M0 150 Q100 132 220 150 T300 148 L300 200 L0 200Z" fill="#1f8a70"/></svg>
+        <svg width="76" viewBox="0 0 100 120" style="position:absolute;bottom:-4px;left:30px"><use href="#m-tree"/></svg>
+        <svg width="60" viewBox="0 0 100 120" style="position:absolute;bottom:-4px;left:120px"><use href="#m-tree"/></svg>
+      </div>
+      <div style="padding:20px 22px"><div style="font-weight:700;font-size:22px;line-height:1.05">Meža ziedu medus</div><p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:#5a6472">Tumšāks, aromātisks medus no mežmalu ziediem.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b">700 g</span><span style="background:#1e2a41;color:#f4efdb;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div></div>
+    </div>
+    <!-- virsu ziedu -->
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;overflow:hidden">
+      <div style="height:200px;background:#efe6dd;position:relative;overflow:hidden">
+        <svg viewBox="0 0 300 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="300" height="200" fill="#efe6dd"/><circle cx="90" cy="170" r="66" fill="#e2971b"/><path d="M0 135 Q90 112 180 130 T300 126 L300 200 L0 200Z" fill="#3aa587"/></svg>
+        <svg width="54" viewBox="0 0 100 120" style="position:absolute;bottom:0;left:60px"><use href="#m-clover"/></svg>
+        <svg width="54" viewBox="0 0 100 120" style="position:absolute;bottom:0;left:140px"><use href="#m-clover"/></svg>
+        <svg width="54" viewBox="0 0 100 120" style="position:absolute;bottom:0;left:200px"><use href="#m-clover"/></svg>
+      </div>
+      <div style="padding:20px 22px"><div style="font-weight:700;font-size:22px;line-height:1.05">Viršu ziedu medus</div><p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:#5a6472">Īpaši aromātisks, biezs viršu medus.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b">700 g</span><span style="background:#1e2a41;color:#f4efdb;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BISKOPIBAS PRODUKTI -->
+<div style="max-width:1180px;margin:0 auto;padding:44px 44px 20px">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px"><span style="color:#f7cf20;display:flex"><svg width="24" viewBox="0 0 100 88"><use href="#m-hex"/></svg></span><h2 style="margin:0;font-weight:700;font-size:30px">Biškopības produkti</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:22px">
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:200px 1fr">
+      <div style="background:#eef2df;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="assets/label-bisu-maize.png" style="width:170%;max-width:170%" alt="Bišu maize"></div>
+      <div style="padding:24px 26px;display:flex;flex-direction:column;justify-content:center"><div style="font-weight:700;font-size:24px;line-height:1.05">Bišu maize</div><p style="margin:10px 0 0;font-size:15px;line-height:1.55;color:#5a6472">Fermentēti ziedputekšņi — dabīgs vitamīnu un aminoskābju avots.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><span style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b">125 g</span><span style="background:#1e2a41;color:#f4efdb;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div></div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:200px 1fr">
+      <div style="background:#f3ead4;position:relative;overflow:hidden">
+        <svg viewBox="0 0 200 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="200" height="220" fill="#f3ead4"/><circle cx="60" cy="180" r="60" fill="#e2971b"/></svg>
+        <svg width="70" viewBox="0 0 100 100" style="position:absolute;bottom:30px;left:60px"><use href="#m-daisy"/></svg>
+        <svg width="80" viewBox="0 0 60 130" style="position:absolute;bottom:0;right:20px"><use href="#m-wheat"/></svg>
+      </div>
+      <div style="padding:24px 26px;display:flex;flex-direction:column;justify-content:center"><div style="font-weight:700;font-size:24px;line-height:1.05">Dažādu ziedu putekšņi</div><p style="margin:10px 0 0;font-size:15px;line-height:1.55;color:#5a6472">Svaigi ievākti ziedputekšņi no daudzveidīgiem nektāraugiem.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><span style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b">125 g</span><span style="background:#1e2a41;color:#f4efdb;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- AMBROSIA teaser -->
+<div style="max-width:1180px;margin:36px auto 0;padding:0 44px 60px">
+  <a href="invertsirups.dc.html" style="display:block;text-decoration:none;background:#1e2a41;border-radius:16px;overflow:hidden;color:#f4efdb;position:relative">
+    <svg width="100%" viewBox="0 0 1100 220" style="position:absolute;inset:0;height:100%"><g opacity=".12" fill="#f7cf20"><use href="#m-hex" x="40" y="20" width="70" height="62"/><use href="#m-hex" x="120" y="70" width="70" height="62"/><use href="#m-hex" x="40" y="120" width="70" height="62"/><use href="#m-hex" x="960" y="40" width="70" height="62"/><use href="#m-hex" x="1030" y="90" width="70" height="62"/></g></svg>
+    <div style="position:relative;padding:40px 44px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <div><div style="font:400 11px/1 'Krona One',sans-serif;color:#f7cf20;letter-spacing:.6px;margin-bottom:12px">PAKALPOJUMI BIŠKOPJIEM</div><h2 style="margin:0 0 8px;font-weight:700;font-size:34px;line-height:1.05">Ambrosia bišu barība un invertsīrups</h2><p style="margin:0;font-size:16px;opacity:.82;max-width:520px">Esam vienīgie Ambrosia izplatītāji Baltijā. Sīrups, kandijs un pasta — no 34 €.</p></div>
+      <span style="background:#f7cf20;color:#182234;padding:15px 26px;border-radius:44px;font:400 13px/1 'Krona One',sans-serif;white-space:nowrap">Uzzināt vairāk →</span>
+    </div>
+  </a>
+</div>
+
+<dc-import name="Footer" hint-size="100%,320px"></dc-import>
+</x-dc>
+</body>
+</html>

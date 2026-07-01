@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'PMESAN';src:url('fonts/PMESAN.ttf') format('truetype');font-display:swap}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#faf7ec;font-family:'PMESAN',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#182234}
+</style>
+</helmet>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+<symbol id="m-hex" viewBox="0 0 100 88"><polygon points="25,2 75,2 98,44 75,86 25,86 2,44" fill="currentColor"/></symbol>
+<symbol id="m-hive" viewBox="0 0 100 120"><rect x="14" y="30" width="72" height="16" rx="3" fill="#e2971b"/><rect x="20" y="46" width="60" height="24" fill="#1e2a41"/><rect x="20" y="72" width="60" height="24" fill="#243354"/><rect x="14" y="96" width="72" height="16" rx="3" fill="#1e2a41"/><polygon points="10,30 90,30 50,10" fill="#e2971b"/><rect x="40" y="86" width="20" height="6" rx="3" fill="#f2b32c"/></symbol>
+</defs></svg>
+
+<dc-import name="Header" active="kontakti" hint-size="100%,74px"></dc-import>
+
+<!-- hero -->
+<div style="max-width:1180px;margin:0 auto;padding:60px 44px 30px">
+  <div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;letter-spacing:.6px;margin-bottom:16px">KONTAKTI</div>
+  <h1 style="margin:0;font-weight:700;font-size:58px;line-height:1;letter-spacing:-1px">Sazinies ar mums</h1>
+  <p style="margin:22px 0 0;font-size:19px;line-height:1.6;color:#3c4658;max-width:600px">Strādājam katru darba dienu no 8 līdz 17. Apkalpojam arī brīvdienās un pēc darba laika pēc iepriekšējas vienošanās.</p>
+</div>
+
+<!-- info + form -->
+<div style="max-width:1180px;margin:0 auto;padding:20px 44px">
+  <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:32px;align-items:start">
+    <!-- left info -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 24px"><div style="font:400 11px/1 'Krona One',sans-serif;color:#e2971b;margin-bottom:10px">TĀLRUNIS</div><a href="tel:+37129161420" style="font-weight:700;font-size:21px;color:#182234;text-decoration:none">+371 29161420</a></div>
+        <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 24px"><div style="font:400 11px/1 'Krona One',sans-serif;color:#e2971b;margin-bottom:10px">E-PASTS</div><a href="mailto:lielvaiceni@inbox.lv" style="font-weight:700;font-size:19px;color:#182234;text-decoration:none;word-break:break-all">lielvaiceni@inbox.lv</a></div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 24px"><div style="font:400 11px/1 'Krona One',sans-serif;color:#e2971b;margin-bottom:10px">ADRESE</div><div style="font-weight:700;font-size:19px;line-height:1.35">"Lielvaicēni", Vītiņu pagasts,<br>Dobeles novads, LV-3708</div></div>
+      <!-- map placeholder -->
+      <div style="position:relative;border-radius:14px;overflow:hidden;height:240px;background:#dfe9e0;border:1px solid rgba(20,30,50,.08)">
+        <svg width="100%" height="100%" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice">
+          <rect width="600" height="240" fill="#dfe9e0"/>
+          <path d="M0 90 H600 M0 160 H600 M120 0 V240 M320 0 V240 M470 0 V240" stroke="#c6d5c7" stroke-width="6" fill="none"/>
+          <path d="M0 120 Q160 60 320 130 T600 110" stroke="#b7cbb8" stroke-width="10" fill="none"/>
+        </svg>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center">
+          <div style="background:#1e2a41;color:#f7cf20;padding:8px 14px;border-radius:10px;font:400 11px/1 'Krona One',sans-serif;white-space:nowrap;box-shadow:0 8px 18px -6px rgba(20,30,50,.5)">Lielvaicēni</div>
+          <div style="width:2px;height:14px;background:#1e2a41"></div>
+          <div style="width:16px;height:16px;border-radius:50%;background:#e2392b;border:3px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.3)"></div>
+        </div>
+        <div style="position:absolute;bottom:14px;left:14px;display:flex;gap:8px">
+          <a href="https://maps.app.goo.gl/r6EdfzwvzAny7FWA7" target="_blank" style="background:#fff;color:#182234;padding:9px 15px;border-radius:40px;font:400 11px/1 'Krona One',sans-serif;text-decoration:none;box-shadow:0 3px 8px -2px rgba(0,0,0,.25)">Google Maps →</a>
+          <a href="https://www.waze.com/en/live-map/directions/lielvaiceni,-vitinu-pag.?place=w.15073844.150607373.25950569" target="_blank" style="background:#fff;color:#182234;padding:9px 15px;border-radius:40px;font:400 11px/1 'Krona One',sans-serif;text-decoration:none;box-shadow:0 3px 8px -2px rgba(0,0,0,.25)">Waze →</a>
+        </div>
+      </div>
+    </div>
+    <!-- form -->
+    <div style="background:#1e2a41;border-radius:16px;padding:34px 34px;color:#f4efdb;position:relative;overflow:hidden">
+      <svg width="160" viewBox="0 0 100 88" style="position:absolute;right:-20px;top:-24px;color:#f7cf20;opacity:.10"><use href="#m-hex"/></svg>
+      <div style="position:relative">
+        <h2 style="margin:0 0 6px;font-weight:700;font-size:28px;line-height:1">Kontaktu forma</h2>
+        <p style="margin:0 0 22px;font-size:14px;opacity:.7">Aizpildi formu un mēs sazināsimies ar tevi.</p>
+        <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <label style="display:block"><span style="font:400 11px/1 'Krona One',sans-serif;opacity:.7;display:block;margin-bottom:8px">VĀRDS *</span><input value="{{name}}" onInput="{{onName}}" placeholder="Tavs vārds" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(244,239,219,.2);background:rgba(244,239,219,.06);color:#f4efdb;font-family:'PMESAN';font-size:16px;outline:none"></label>
+            <label style="display:block"><span style="font:400 11px/1 'Krona One',sans-serif;opacity:.7;display:block;margin-bottom:8px">E-PASTS *</span><input value="{{email}}" onInput="{{onEmail}}" placeholder="tavs@epasts.lv" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(244,239,219,.2);background:rgba(244,239,219,.06);color:#f4efdb;font-family:'PMESAN';font-size:16px;outline:none"></label>
+            <label style="display:block"><span style="font:400 11px/1 'Krona One',sans-serif;opacity:.7;display:block;margin-bottom:8px">ZIŅOJUMS *</span><textarea value="{{msg}}" onInput="{{onMsg}}" rows="4" placeholder="Tavs jautājums vai pasūtījums" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(244,239,219,.2);background:rgba(244,239,219,.06);color:#f4efdb;font-family:'PMESAN';font-size:16px;outline:none;resize:vertical"></textarea></label>
+            <sc-if value="{{error}}" hint-placeholder-val=""><div style="color:#f7cf20;font-size:13px">{{error}}</div></sc-if>
+            <button onClick="{{onSubmit}}" style="background:#f7cf20;color:#182234;border:none;padding:16px;border-radius:44px;font:400 14px/1 'Krona One',sans-serif;cursor:pointer">Nosūtīt ziņojumu →</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{sent}}" hint-placeholder-val="">
+          <div style="text-align:center;padding:40px 10px">
+            <div style="width:70px;height:70px;margin:0 auto 20px;border-radius:50%;background:#f7cf20;color:#182234;display:flex;align-items:center;justify-content:center;font-size:34px">✓</div>
+            <div style="font-weight:700;font-size:24px;margin-bottom:8px">Paldies, {{sentName}}!</div>
+            <p style="margin:0;font-size:15px;opacity:.78;line-height:1.5">Tavs ziņojums ir saņemts. Mēs sazināsimies ar tevi tuvākajā laikā.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- team phones -->
+<div style="max-width:1180px;margin:0 auto;padding:50px 44px 10px">
+  <h2 style="margin:0 0 24px;font-weight:700;font-size:32px;line-height:1">Sazinies tieši</h2>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 20px"><div style="font-weight:700;font-size:17px;line-height:1.1">Artūrs Grudovskis</div><div style="font-size:13px;color:#5a6472;margin-top:5px">Īpašnieks · Biškopis</div><div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;margin-top:12px">27220931</div></div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 20px"><div style="font-weight:700;font-size:17px;line-height:1.1">Toms Grudovskis</div><div style="font-size:13px;color:#5a6472;margin-top:5px">Biškopis</div><div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;margin-top:12px">28243975</div></div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 20px"><div style="font-weight:700;font-size:17px;line-height:1.1">Pēteris Grudovskis</div><div style="font-size:13px;color:#5a6472;margin-top:5px">Lauks. inženieris</div><div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;margin-top:12px">28687757</div></div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 20px"><div style="font-weight:700;font-size:17px;line-height:1.1">Iveta Grudovska</div><div style="font-size:13px;color:#5a6472;margin-top:5px">Agronome</div><div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;margin-top:12px">29437520</div></div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:22px 20px"><div style="font-weight:700;font-size:17px;line-height:1.1">Laura Grudovska</div><div style="font-size:13px;color:#5a6472;margin-top:5px">Lietvede</div><div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;margin-top:12px">29161420</div></div>
+  </div>
+</div>
+
+<!-- requisites + retailers -->
+<div style="max-width:1180px;margin:0 auto;padding:40px 44px 60px">
+  <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:start">
+    <div style="background:#f4efdb;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:28px">
+      <div style="font:400 11px/1 'Krona One',sans-serif;color:#e2971b;letter-spacing:.5px;margin-bottom:16px">REKVIZĪTI</div>
+      <div style="font-size:15px;line-height:2;color:#3c4658">
+        <div><b style="color:#182234">Z/S Lielvaicēni</b></div>
+        <div>Reģ. nr. 45101006074</div>
+        <div>PVN nr. LV45101006074</div>
+        <div>A/S SEB Banka · UNLALV2X</div>
+        <div style="word-break:break-all">LV79UNLA0006003643081</div>
+      </div>
+    </div>
+    <div>
+      <div style="font:400 11px/1 'Krona One',sans-serif;color:#e2971b;letter-spacing:.5px;margin-bottom:16px">KUR NOPIRKT · TIRDZNIECĪBAS VIETAS</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">"Bišu bode" · Kr. Barona 51, Rīga</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Āgenskalna aptieka · Baložu 28, Rīga</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Gemoss · Mūkusalas 73, Rīga</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Futurus Food · Vienības gatve 26a, Rīga</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Jelgavas Pils aptieka · Jelgava</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Jelgavfarm · Zemgales pr. 3, Jelgava</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Inuleks Galma aptieka · Jelgava</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Ambers 99 · Elvīras 19, Rīga</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Agnoras · Tirgus laukums 8, Dobele</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Kafejnīca "Dzirnaviņas" · Biksti</span>
+        <span style="background:#fff;border:1px solid rgba(20,30,50,.1);padding:11px 16px;border-radius:10px;font-size:14px">Interneta veikals ARN · arn.lv</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<dc-import name="Footer" hint-size="100%,320px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name:'', email:'', msg:'', error:'', sent:false, sentName:'' };
+  onName = (e) => this.setState({ name: e.target.value, error:'' });
+  onEmail = (e) => this.setState({ email: e.target.value, error:'' });
+  onMsg = (e) => this.setState({ msg: e.target.value, error:'' });
+  onSubmit = () => {
+    const { name, email, msg } = this.state;
+    if (!name.trim() || !email.trim() || !msg.trim()) { this.setState({ error:'Lūdzu aizpildi visus laukus.' }); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { this.setState({ error:'Lūdzu ievadi derīgu e-pasta adresi.' }); return; }
+    this.setState({ sent:true, sentName:name.trim() });
+  };
+  renderVals() {
+    return {
+      name:this.state.name, email:this.state.email, msg:this.state.msg,
+      error:this.state.error, sent:this.state.sent, notSent:!this.state.sent, sentName:this.state.sentName,
+      onName:this.onName, onEmail:this.onEmail, onMsg:this.onMsg, onSubmit:this.onSubmit,
+    };
+  }
+}
+</script>
+</body>
+</html>

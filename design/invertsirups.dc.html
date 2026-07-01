@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'PMESAN';src:url('fonts/PMESAN.ttf') format('truetype');font-display:swap}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#faf7ec;font-family:'PMESAN',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#182234}
+</style>
+</helmet>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+<symbol id="m-hex" viewBox="0 0 100 88"><polygon points="25,2 75,2 98,44 75,86 25,86 2,44" fill="currentColor"/></symbol>
+<symbol id="m-bee" viewBox="0 0 120 90"><ellipse cx="62" cy="52" rx="30" ry="22" fill="#f2b32c"/><rect x="50" y="30" width="9" height="44" fill="#1c1c22"/><rect x="66" y="32" width="9" height="40" fill="#1c1c22"/><circle cx="90" cy="46" r="8" fill="#1c1c22"/><ellipse cx="46" cy="30" rx="16" ry="10" fill="#f6f1dc" opacity=".9" transform="rotate(-25 46 30)"/><ellipse cx="66" cy="28" rx="15" ry="9" fill="#f6f1dc" opacity=".9" transform="rotate(20 66 28)"/></symbol>
+</defs></svg>
+
+<dc-import name="Header" active="invertsirups" hint-size="100%,74px"></dc-import>
+
+<!-- HERO on navy -->
+<div style="background:#1e2a41;color:#f4efdb;position:relative;overflow:hidden">
+  <svg width="100%" viewBox="0 0 1280 360" style="position:absolute;inset:0;height:100%"><g opacity=".08" fill="#f7cf20"><use href="#m-hex" x="60" y="40" width="90" height="80"/><use href="#m-hex" x="150" y="100" width="90" height="80"/><use href="#m-hex" x="60" y="160" width="90" height="80"/><use href="#m-hex" x="1080" y="60" width="90" height="80"/><use href="#m-hex" x="1160" y="120" width="90" height="80"/><use href="#m-hex" x="1080" y="180" width="90" height="80"/></g></svg>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:66px 44px 70px">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#f7cf20;color:#182234;padding:8px 15px;border-radius:40px;font:400 11px/1 'Krona One',sans-serif;letter-spacing:.5px;margin-bottom:22px">AMBROSIA · SEZONA 2025</div>
+    <h1 style="margin:0;font-weight:700;font-size:60px;line-height:.98;letter-spacing:-1px;max-width:760px;color:#f4efdb">Ambrosia bišu barības sīrups</h1>
+    <p style="margin:22px 0 0;font-size:18px;line-height:1.6;opacity:.85;max-width:620px">Z/S Lielvaicēni piedāvā iegādāties Ambrosia — invertētu cukurbiešu saharozes sīrupu no Vācijas. Esam vienīgie izplatītāji Baltijā.</p>
+    <svg width="66" viewBox="0 0 120 90" style="position:absolute;right:60px;bottom:40px;opacity:.9"><use href="#m-bee"/></svg>
+  </div>
+</div>
+
+<!-- intro + why -->
+<div style="max-width:1180px;margin:0 auto;padding:52px 44px 20px">
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:start">
+    <div>
+      <div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;letter-spacing:.6px;margin-bottom:14px">KAS IR AMBROSIA</div>
+      <h2 style="margin:0 0 16px;font-weight:700;font-size:34px;line-height:1.05">Enerģija bitēm līdz pat pavasarim</h2>
+      <p style="margin:0 0 14px;font-size:17px;line-height:1.62;color:#3c4658">Barojot bites ar invertētu sīrupu, tas uzlabo bišu gremošanu un saglabā būtiskus energoresursus līdz pat pavasarim — bez lieka mitruma.</p>
+      <p style="margin:0;font-size:17px;line-height:1.62;color:#3c4658">Sīrups pieejams konteineros, spaiņos, kastēs un savā tarā.</p>
+    </div>
+    <!-- spec table -->
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.1);border-radius:16px;overflow:hidden">
+      <div style="background:#1e2a41;color:#f4efdb;padding:16px 24px;font:400 12px/1 'Krona One',sans-serif;letter-spacing:.5px">SĪRUPA SASTĀVS</div>
+      <div style="padding:6px 24px 14px">
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Sausnas vielas</span><b>72,7% ± 0,3%</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Saharoze</span><b>30–36%</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Glikoze</span><b>27–30%</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Fruktoze</span><b>37–40%</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Pelni (max)</span><b>0,08%</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">HMF (ne vairāk)</span><b>25 ppm</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Viskozitāte</span><b>71,5% ± 0,3%</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Skābums</span><b>pH 4–7</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(20,30,50,.08);font-size:15px"><span style="color:#5a6472">Blīvums (20°C)</span><b>≈ 1,367 g/cm³</b></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:15px"><span style="color:#5a6472">Ražotājs</span><b>Vācija</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- pricing -->
+<div style="max-width:1180px;margin:0 auto;padding:44px 44px 20px">
+  <h2 style="margin:0 0 22px;font-weight:700;font-size:32px;line-height:1">Cenas un iepakojumi</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:28px 26px">
+      <div style="font-family:'Krona One';font-size:36px;line-height:1;color:#1e2a41">28<span style="font-size:16px">kg</span></div>
+      <div style="font-weight:700;font-size:19px;margin-top:12px">Kaste</div>
+      <p style="margin:6px 0 0;font-size:14px;color:#5a6472;line-height:1.5">Produkts ierobežotā daudzumā</p>
+      <div style="margin-top:18px;font-family:'Krona One';font-size:26px;color:#e2971b">34 €</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:28px 26px">
+      <div style="font-family:'Krona One';font-size:36px;line-height:1;color:#1e2a41">Spaiņi</div>
+      <div style="font-weight:700;font-size:19px;margin-top:12px">Dažādi izmēri</div>
+      <p style="margin:6px 0 0;font-size:14px;color:#5a6472;line-height:1.5">Ērti mazākām saimēm</p>
+      <div style="margin-top:18px;font:400 13px/1 'Krona One',sans-serif;color:#e2971b">Cena pēc pieprasījuma</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:28px 26px">
+      <div style="font-family:'Krona One';font-size:36px;line-height:1;color:#1e2a41">Konteineri</div>
+      <div style="font-weight:700;font-size:19px;margin-top:12px">Vairumam · savā tarā</div>
+      <p style="margin:6px 0 0;font-size:14px;color:#5a6472;line-height:1.5">Lieliem biškopjiem</p>
+      <div style="margin-top:18px;font:400 13px/1 'Krona One',sans-serif;color:#e2971b">Cena pēc pieprasījuma</div>
+    </div>
+  </div>
+</div>
+
+<!-- order band -->
+<div style="background:#e2971b;padding:46px 44px;margin-top:40px;position:relative;overflow:hidden">
+  <svg width="200" viewBox="0 0 100 88" style="position:absolute;right:-16px;top:-30px;color:#fff;opacity:.13"><use href="#m-hex"/></svg>
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative">
+    <div>
+      <h2 style="margin:0 0 8px;font-weight:700;font-size:32px;line-height:1.05;color:#fff">Pasūtīt vai uzzināt cenu</h2>
+      <p style="margin:0;font-size:16px;color:#fff;opacity:.92">Strādājam katru darba dienu 8—17. Apkalpojam arī brīvdienās pēc iepriekšējas vienošanās.</p>
+      <div style="margin-top:14px;font:400 13px/1 'Krona One',sans-serif;color:#fff">+371 29161420 · lielvaiceni@inbox.lv</div>
+    </div>
+    <a href="kontakti.dc.html" style="background:#1e2a41;color:#f4efdb;padding:16px 32px;border-radius:44px;font:400 14px/1 'Krona One',sans-serif;text-decoration:none;white-space:nowrap">Sazināties →</a>
+  </div>
+</div>
+
+<dc-import name="Footer" hint-size="100%,320px"></dc-import>
+</x-dc>
+</body>
+</html>

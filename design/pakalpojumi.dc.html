@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'PMESAN';src:url('fonts/PMESAN.ttf') format('truetype');font-display:swap}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#faf7ec;font-family:'PMESAN',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#182234}
+</style>
+</helmet>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+<symbol id="m-hex" viewBox="0 0 100 88"><polygon points="25,2 75,2 98,44 75,86 25,86 2,44" fill="currentColor"/></symbol>
+<symbol id="m-hive" viewBox="0 0 100 120"><rect x="14" y="30" width="72" height="16" rx="3" fill="#e2971b"/><rect x="20" y="46" width="60" height="24" fill="#1e2a41"/><rect x="20" y="72" width="60" height="24" fill="#243354"/><rect x="14" y="96" width="72" height="16" rx="3" fill="#1e2a41"/><polygon points="10,30 90,30 50,10" fill="#e2971b"/><rect x="40" y="86" width="20" height="6" rx="3" fill="#f2b32c"/></symbol>
+<symbol id="m-clover" viewBox="0 0 100 120"><rect x="47" y="55" width="6" height="60" rx="3" fill="#1f8a70"/><circle cx="30" cy="95" r="11" fill="#2f9e7f"/><circle cx="70" cy="90" r="11" fill="#2f9e7f"/><g fill="#e7a2b8"><circle cx="50" cy="30" r="10"/><circle cx="36" cy="38" r="9"/><circle cx="64" cy="38" r="9"/><circle cx="30" cy="52" r="9"/><circle cx="70" cy="52" r="9"/><circle cx="43" cy="50" r="9"/><circle cx="57" cy="50" r="9"/><circle cx="50" cy="45" r="9"/></g></symbol>
+</defs></svg>
+
+<dc-import name="Header" active="pakalpojumi" hint-size="100%,74px"></dc-import>
+
+<!-- hero -->
+<div style="max-width:1180px;margin:0 auto;padding:60px 44px 34px">
+  <div style="font:400 12px/1 'Krona One',sans-serif;color:#e2971b;letter-spacing:.6px;margin-bottom:16px">PAKALPOJUMI BIŠKOPJIEM</div>
+  <h1 style="margin:0;font-weight:700;font-size:58px;line-height:1;letter-spacing:-1px;max-width:840px">Pakalpojumi un atbalsts biškopjiem</h1>
+  <p style="margin:22px 0 0;font-size:19px;line-height:1.6;color:#3c4658;max-width:660px">Mūsu plašā specializācija ļauj piedāvāt dažāda veida pakalpojumus citiem biškopjiem — no vaska šūnu pārstrādes līdz bišu barības izplatīšanai.</p>
+</div>
+
+<!-- services grid -->
+<div style="max-width:1180px;margin:0 auto;padding:24px 44px 20px">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:32px 28px">
+      <div style="width:64px;height:64px;background:#1e2a41;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#f7cf20;margin-bottom:20px"><svg width="30" viewBox="0 0 100 88"><use href="#m-hex"/></svg></div>
+      <h3 style="margin:0 0 10px;font-weight:700;font-size:23px;line-height:1.1">Vaska šūnu pārstrāde</h3>
+      <p style="margin:0;font-size:15px;line-height:1.58;color:#5a6472">Pārstrādājam bišu vasku kvalitatīvās vaska šūnās, gatavas ievietošanai rāmjos.</p>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:32px 28px">
+      <div style="width:64px;height:64px;background:#1e2a41;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px"><svg width="38" viewBox="0 0 100 120"><use href="#m-hive"/></svg></div>
+      <h3 style="margin:0 0 10px;font-weight:700;font-size:23px;line-height:1.1">Bišu maizes pārstrāde</h3>
+      <p style="margin:0;font-size:15px;line-height:1.58;color:#5a6472">Bišu maizes izņemšana un pārstrāde ar mūsu specializēto aprīkojumu.</p>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:32px 28px">
+      <div style="width:64px;height:64px;background:#1e2a41;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px"><svg width="34" viewBox="0 0 100 120"><use href="#m-clover"/></svg></div>
+      <h3 style="margin:0 0 10px;font-weight:700;font-size:23px;line-height:1.1">Bišu māšu ražošana</h3>
+      <p style="margin:0;font-size:15px;line-height:1.58;color:#5a6472">Kvalitatīvu bišu māšu audzēšana saimēm ar labām īpašībām.</p>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:32px 28px">
+      <div style="width:64px;height:64px;background:#1e2a41;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#f7cf20;margin-bottom:20px"><svg width="30" viewBox="0 0 100 88"><use href="#m-hex"/></svg></div>
+      <h3 style="margin:0 0 10px;font-weight:700;font-size:23px;line-height:1.1">Kandijs</h3>
+      <p style="margin:0;font-size:15px;line-height:1.58;color:#5a6472">Ambrosia kandijs — gatava cukura pasta bišu barošanai. Pieejams kastēs.</p>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,30,50,.08);border-radius:14px;padding:32px 28px">
+      <div style="width:64px;height:64px;background:#1e2a41;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#f7cf20;margin-bottom:20px"><svg width="30" viewBox="0 0 100 88"><use href="#m-hex"/></svg></div>
+      <h3 style="margin:0 0 10px;font-weight:700;font-size:23px;line-height:1.1">Bišu barības izplatīšana</h3>
+      <p style="margin:0;font-size:15px;line-height:1.58;color:#5a6472">Esam vienīgie Ambrosia izplatītāji Baltijā — sīrups, pasta un kandijs.</p>
+    </div>
+    <a href="invertsirups.dc.html" style="text-decoration:none;background:#e2971b;color:#fff;border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between">
+      <div><div style="font-family:'Krona One';font-size:40px;line-height:1">28<span style="font-size:18px">kg</span></div><div style="font:400 11px/1.5 'Krona One',sans-serif;opacity:.9;margin-top:10px">AMBROSIA KASTE · NO 34 €</div></div>
+      <div style="margin-top:24px;font:400 13px/1 'Krona One',sans-serif">Skatīt invertsīrupu →</div>
+    </a>
+  </div>
+</div>
+
+<!-- info band -->
+<div style="background:#1e2a41;color:#f4efdb;padding:48px 44px;margin-top:44px">
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <div><h2 style="margin:0 0 8px;font-weight:700;font-size:30px;line-height:1.05">Interesē pakalpojums vai bišu barība?</h2><p style="margin:0;font-size:16px;opacity:.82">Strādājam katru darba dienu 8—17, arī brīvdienās pēc iepriekšējas vienošanās.</p></div>
+    <a href="kontakti.dc.html" style="background:#f7cf20;color:#182234;padding:16px 30px;border-radius:44px;font:400 14px/1 'Krona One',sans-serif;text-decoration:none;white-space:nowrap">Sazināties →</a>
+  </div>
+</div>
+
+<dc-import name="Footer" hint-size="100%,320px"></dc-import>
+</x-dc>
+</body>
+</html>
