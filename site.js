@@ -28,8 +28,8 @@ function renderHeader() {
           <img src="design/assets/logo-trans.png" alt="Lielvaicēni">
         </a>
         <nav class="site-nav" id="site-nav" aria-label="Galvenā izvēlne">${links}</nav>
-        <a class="button button-dark nav-phone" href="tel:+37129161420">
-          <span class="status-dot"></span>+371 29161420
+        <a class="button button-dark nav-phone" href="tel:+37128243975" aria-label="Zvanīt Tomam Grudovskim">
+          <span class="status-dot"></span>+371 28243975
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Atvērt izvēlni"><span></span></button>
       </div>
@@ -59,7 +59,8 @@ function renderFooter() {
           </div>
           <div class="footer-copy">
             <div class="footer-heading">KONTAKTI</div>
-            <a href="tel:+37129161420">+371 29161420</a><br>
+            Toms Grudovskis<br>
+            <a href="tel:+37128243975">+371 28243975</a><br>
             <a href="mailto:lielvaiceni@inbox.lv">lielvaiceni@inbox.lv</a>
           </div>
           <div class="footer-copy">

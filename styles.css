@@ -1119,6 +1119,47 @@ h3 {
   text-decoration: none;
 }
 
+.primary-contact {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  align-items: center;
+  gap: 22px;
+  padding: 0;
+}
+
+.primary-contact img {
+  width: 128px;
+  height: 156px;
+  object-fit: cover;
+  object-position: center 24%;
+}
+
+.primary-contact span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold-dark);
+  font-family: var(--font-label);
+  font-size: 9px;
+}
+
+.primary-contact strong {
+  display: block;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.primary-contact p {
+  margin: 5px 0 13px;
+  color: var(--muted);
+}
+
+.primary-contact a {
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
 .map-card {
   position: relative;
   min-height: 240px;
@@ -1638,6 +1679,15 @@ h3 {
 
   .contact-form {
     padding: 28px 22px;
+  }
+
+  .primary-contact {
+    grid-template-columns: 112px 1fr;
+  }
+
+  .primary-contact img {
+    width: 112px;
+    height: 148px;
   }
 
   .map-actions {
