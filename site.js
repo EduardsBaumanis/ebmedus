@@ -71,24 +71,6 @@ function renderHeader() {
           <path d="M39 31c0-22 42-22 42 0" fill="none" stroke="#f6f1dc" stroke-width="7"/>
           <path d="M60 57c12 15 15 21 15 29a15 15 0 01-30 0c0-8 3-14 15-29z" fill="#1f8a70"/>
         </symbol>
-        <symbol id="icon-pollen-jar" viewBox="0 0 180 180">
-          <ellipse cx="90" cy="157" rx="55" ry="8" fill="#182234" opacity=".12"/>
-          <path d="M48 42h84l-7 16v80c0 13-10 23-23 23H78c-13 0-23-10-23-23V58z" fill="#fff8dc" stroke="#182234" stroke-width="4"/>
-          <path d="M45 34h90v18H45z" rx="3" fill="#e2971b"/>
-          <path d="M54 58h72v19H54z" fill="#1e2a41"/>
-          <text x="90" y="70" fill="#f4efdb" font-size="9" font-family="Arial, sans-serif" text-anchor="middle" font-weight="700">ZIEDPUTEKŠŅI</text>
-          <g>
-            <circle cx="68" cy="94" r="7" fill="#f2b32c"/><circle cx="83" cy="91" r="6" fill="#d98916"/>
-            <circle cx="99" cy="95" r="7" fill="#f7cf20"/><circle cx="114" cy="91" r="6" fill="#bb6b24"/>
-            <circle cx="62" cy="108" r="6" fill="#d98916"/><circle cx="77" cy="106" r="7" fill="#f7cf20"/>
-            <circle cx="92" cy="110" r="6" fill="#c77d21"/><circle cx="108" cy="106" r="7" fill="#f2b32c"/>
-            <circle cx="121" cy="111" r="5" fill="#e9a22a"/><circle cx="68" cy="122" r="7" fill="#f2b32c"/>
-            <circle cx="84" cy="123" r="6" fill="#b86b2b"/><circle cx="100" cy="122" r="7" fill="#f7cf20"/>
-            <circle cx="116" cy="126" r="6" fill="#d98916"/><circle cx="61" cy="136" r="6" fill="#f7cf20"/>
-            <circle cx="76" cy="139" r="7" fill="#ca7620"/><circle cx="92" cy="136" r="6" fill="#f2b32c"/>
-            <circle cx="108" cy="141" r="7" fill="#bb6b24"/><circle cx="120" cy="138" r="5" fill="#f7cf20"/>
-          </g>
-        </symbol>
       </defs>
     </svg>
     <a class="skip-link" href="#main">Pāriet uz saturu</a>

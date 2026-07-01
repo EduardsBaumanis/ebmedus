@@ -522,10 +522,17 @@ h3 {
   background-size: 38px 38px, 46px 46px, auto;
 }
 
-.pollen-jar {
-  width: 160px;
-  height: 180px;
-  filter: drop-shadow(0 14px 16px rgba(20, 30, 50, 0.18));
+.product-image.pollen-image img {
+  width: 150%;
+  filter: drop-shadow(0 14px 16px rgba(20, 30, 50, 0.14));
+}
+
+.product-image.forest-honey {
+  background: #e7efe1;
+}
+
+.product-image.heather-honey {
+  background: #efe6dd;
 }
 
 .flower-mark {
