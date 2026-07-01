@@ -595,8 +595,8 @@ h3 {
 
 .dark-product .feed-image {
   display: flex;
-  flex-direction: column;
-  gap: 7px;
+  align-items: center;
+  justify-content: center;
 }
 
 .feed-package {
@@ -604,11 +604,32 @@ h3 {
   height: 94px;
 }
 
-.package-note {
-  color: var(--honey);
-  font-family: var(--font-label);
-  font-size: 8px;
-  letter-spacing: 0.06em;
+.round-arrow.arrow-link {
+  position: relative;
+}
+
+.round-arrow.arrow-link::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  content: "";
+  transform: translate(-55%, -50%);
+}
+
+.round-arrow.arrow-link::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  content: "";
+  transform: translate(20%, -50%) rotate(45deg);
 }
 
 .dark-product .product-meta {
