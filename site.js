@@ -199,7 +199,10 @@ function setupContactForm() {
         if (!response.ok) throw new Error("Form submission failed");
         return response.json();
       })
-      .then(() => {
+      .then((data) => {
+        if (data.success !== true && data.success !== "true") {
+          throw new Error(data.message || "Form submission failed");
+        }
         form.reset();
         status.textContent = "Paldies! Ziņojums ir veiksmīgi nosūtīts.";
       })
