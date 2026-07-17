@@ -1,8 +1,8 @@
 const pages = [
   ["index.html", "Sākums", "home"],
   ["par-mums.html", "Par mums", "about"],
-  ["produkti.html", "Produkti", "products"],
   ["pakalpojumi.html", "Pakalpojumi", "services"],
+  ["produkti.html", "Produkti", "products"],
   ["invertsirups.html", "Invertsīrups", "syrup"],
   ["kontakti.html", "Kontakti", "contact"],
 ];
@@ -66,10 +66,10 @@ function renderHeader() {
           <rect x="69" y="62" width="21" height="15" rx="3" fill="#1e2a41"/>
         </symbol>
         <symbol id="icon-feed" viewBox="0 0 120 120">
-          <path d="M31 31h58l-7 72H38z" fill="#f2b32c"/>
-          <path d="M27 31h66v13H27z" fill="#e2971b"/>
-          <path d="M39 31c0-22 42-22 42 0" fill="none" stroke="#f6f1dc" stroke-width="7"/>
-          <path d="M60 57c12 15 15 21 15 29a15 15 0 01-30 0c0-8 3-14 15-29z" fill="#1f8a70"/>
+          <path d="M32 34h56c8 0 14 6 14 14v44c0 8-6 14-14 14H32c-8 0-14-6-14-14V48c0-8 6-14 14-14z" fill="#f2b32c"/>
+          <path d="M28 34h64v12c0 6-5 11-11 11H39c-6 0-11-5-11-11V34z" fill="#e2971b"/>
+          <path d="M36 40c0-16 48-16 48 0" fill="none" stroke="#f6f1dc" stroke-width="7" stroke-linecap="round"/>
+          <path d="M60 58c10 14 12 19 12 25a12 12 0 01-24 0c0-6 2-11 12-25z" fill="#1f8a70"/>
         </symbol>
         <symbol id="icon-candle" viewBox="0 0 120 120">
           <ellipse cx="60" cy="111" rx="30" ry="7" fill="#1e2a41" opacity=".16"/>
@@ -84,7 +84,7 @@ function renderHeader() {
     <a class="skip-link" href="#main">Pāriet uz saturu</a>
     <header class="site-header">
       <div class="container nav-shell">
-        <a class="brand" href="index.html" aria-label="Lielvaicēni — sākums">
+        <a class="brand" href="index.html" aria-label="Lielvaicēni, sākums">
           <img src="design/assets/logo-trans.png" alt="Lielvaicēni">
         </a>
         <nav class="site-nav" id="site-nav" aria-label="Galvenā izvēlne">${links}</nav>
@@ -106,14 +106,14 @@ function renderFooter() {
         <div class="footer-grid">
           <div class="footer-brand">
             <img src="design/assets/logo-cream.png" alt="Lielvaicēni">
-            <p>Daudznozaru saimniecība kopš 1992. gada. Medus, biškopības produkti un pakalpojumi biškopjiem no Zemgales.</p>
+            <p>Piegādes un pakalpojumi biškopjiem un lauksaimniekiem kopš 1992. gada. Ražojam arī medu un citus biškopības produktus.</p>
           </div>
           <div>
             <div class="footer-heading">LAPAS</div>
             <div class="footer-links">
               <a href="par-mums.html">Par mums</a>
-              <a href="produkti.html">Produkti</a>
               <a href="pakalpojumi.html">Pakalpojumi</a>
+              <a href="produkti.html">Produkti</a>
               <a href="invertsirups.html">Invertsīrups</a>
             </div>
           </div>
@@ -131,6 +131,8 @@ function renderFooter() {
         <div class="footer-bottom">
           <span>© <span data-year></span> Z/S LIELVAICĒNI</span>
           <span>REĢ. NR. 45101006074</span>
+          <span>Vaska šūnu foto: Artic / Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/3.0/" style="color:inherit">CC BY-SA 3.0</a></span>
+          <span>Bišu maizes foto: Waugsberg / Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/3.0/" style="color:inherit">CC BY-SA 3.0</a></span>
         </div>
       </div>
     </footer>`;
@@ -220,7 +222,7 @@ function setupContactForm() {
       })
       .finally(() => {
         button.disabled = false;
-        button.textContent = "Nosūtīt ziņojumu →";
+        button.textContent = "Nosūtīt ziņojumu";
       });
   });
 }

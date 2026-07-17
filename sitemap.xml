@@ -5,12 +5,12 @@
 <priority>1.0</priority>
 </url>
 <url>
-<loc>https://www.lielvaiceni.lv/produkti.html</loc>
+<loc>https://www.lielvaiceni.lv/pakalpojumi.html</loc>
 <priority>0.9</priority>
 </url>
 <url>
-<loc>https://www.lielvaiceni.lv/pakalpojumi.html</loc>
-<priority>0.8</priority>
+<loc>https://www.lielvaiceni.lv/produkti.html</loc>
+<priority>0.85</priority>
 </url>
 <url>
 <loc>https://www.lielvaiceni.lv/invertsirups.html</loc>
