@@ -1,6 +1,5 @@
 const pages = [
   ["index.html", "Sākums", "home"],
-  ["par-mums.html", "Par mums", "about"],
   ["pakalpojumi.html", "Pakalpojumi", "services"],
   ["produkti.html", "Produkti", "products"],
   ["invertsirups.html", "Invertsīrups", "syrup"],
@@ -111,7 +110,6 @@ function renderFooter() {
           <div>
             <div class="footer-heading">LAPAS</div>
             <div class="footer-links">
-              <a href="par-mums.html">Par mums</a>
               <a href="pakalpojumi.html">Pakalpojumi</a>
               <a href="produkti.html">Produkti</a>
               <a href="invertsirups.html">Invertsīrups</a>
@@ -131,9 +129,7 @@ function renderFooter() {
         <div class="footer-bottom">
           <span>© <span data-year></span> Z/S LIELVAICĒNI</span>
           <span>REĢ. NR. 45101006074</span>
-          <span>Vaska šūnu foto: Artic / Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/3.0/" style="color:inherit">CC BY-SA 3.0</a></span>
-          <span>Bišu maizes foto: Waugsberg / Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/3.0/" style="color:inherit">CC BY-SA 3.0</a></span>
-        </div>
+      </div>
       </div>
     </footer>`;
 }
