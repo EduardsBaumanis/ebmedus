@@ -1639,7 +1639,9 @@ h3 {
   }
 
   .nav-shell {
-    grid-template-columns: 1fr auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     min-height: 68px;
     position: relative;
   }
@@ -1650,6 +1652,8 @@ h3 {
 
   .menu-toggle {
     display: block;
+    align-self: center;
+    justify-self: end;
   }
 
   .site-nav {
